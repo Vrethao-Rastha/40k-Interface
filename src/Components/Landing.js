@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Topper from './Topper'
 
 class Landing extends Component {
   render() {
     return (
-      <div>
-        
+      <div className="Landing">
+        <Topper />
+
       </div>
     );
   }

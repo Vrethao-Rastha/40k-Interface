@@ -7,4 +7,77 @@ body {
   background-color: black;
   font-size: 25pt;
   color: #850909;
+  padding: 0px;
+  font-family: 'MedievalSharp', cursive;
+}
+.Landing {
+  background-image: url('../src/images/warhammer-40k-logo-graffiti-hd-desktop-high-definition.jpg');
+  min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.NavbarButtons {
+  height: 2em;
+  color: #850909;
+  padding: 0px;
+  background-color: black;
+  font-family: 'MedievalSharp', cursive;
+}
+.CaseSearch {
+  background-image: url('../src/images/the_inquisition_by_denizenoftehwarp.jpg');
+  min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.CaseFiles {
+  background-image: url('../src/images/best-warhammer-40k-wallpapers-1920x1200-WTG200613638.jpg');
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.CaseSearchModal {
+  font-family: 'MedievalSharp', cursive;
+  color: #850909;
+  background-color: black;
+}
+.modal-content {
+  border: 1px solid red;
+}
+.btns {
+  margin-top: .5em;
+  font-size: 15pt;
+}
+input[type=text] {
+  border: 1px solid #850909;
+  border-radius: 4px;
+}
+.modal-backdrop {
+    opacity:0.8 !important;
 }
