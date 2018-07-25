@@ -24,9 +24,9 @@ const Topper = () => {
 
           <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
 </NavbarBrand>
-          <Link className="NavbarButtons" to="/Case_Search" style={{marginLeft:"53em", fontSize:"15pt"}}>Case Number</Link>
-          <Link className="NavbarButtons" to="/File_Case" style={{marginLeft:"1em", fontSize:"15pt"}}>File a Report</Link>
-          <Link className="NavbarButtons" to="/Open_Cases" style={{marginLeft:"1em", fontSize:"15pt"}}>Current Open Cases</Link>
+          <Link className="NavbarButtons" to="/Case_Search" style={{marginLeft:"3em", fontSize:"15pt"}}>Search</Link>
+          <Link className="NavbarButtons" to="/File_Case" style={{ fontSize:"15pt"}}>File a Report</Link>
+          <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
 
           <Nav navbar>
 
