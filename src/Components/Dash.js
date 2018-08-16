@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import Topper from './Topper'
 
 class Dash extends Component {
   render() {
     return (
-      <div></div>
+      <div className="dash">
+        <Topper />
+      </div>
     );
   }
 }

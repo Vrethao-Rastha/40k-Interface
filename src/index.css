@@ -11,6 +11,21 @@ body {
   font-family: 'MedievalSharp', cursive;
 }
 .Landing {
+  background-image: url('../src/images/57741-innocence_proves_nothing_wallpaper.jpg');
+  min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dash {
   background-image: url('../src/images/warhammer-40k-logo-graffiti-hd-desktop-high-definition.jpg');
   min-height: 100%;
     min-width: 1024px;
@@ -76,6 +91,20 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.Login {
+  background-image: url('../src/images/ravenor-cross-inquisition-wallpaper.jpg');
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .CaseSearchModal {
   font-family: 'MedievalSharp', cursive;

@@ -8,7 +8,7 @@ class VoxDispatch extends Component {
     const logs = this.props.vox.map(message => <VoxIndividual key={message.id} message={message} /> )
     console.log('props', logs)
     return (
-      <div>
+      <div className="vox">
         {logs}
       </div>
     );

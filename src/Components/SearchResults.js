@@ -6,7 +6,6 @@ import Files from './Files'
 
 class SearcResults extends Component {
   render() {
-    console.log('props', fileResults, 'props', this.props)
     let fileResults = this.props.case_search_result.map(file => <Files key={ file.id} file={ file } />)
     return (
       <div>

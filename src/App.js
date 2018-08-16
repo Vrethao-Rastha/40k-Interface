@@ -13,6 +13,8 @@ import CaseFiles from './Components/CaseFiles'
 import VoxDispatch from './Components/VoxDispatch'
 import SearchResults from './Components/SearchResults'
 import Dash from './Components/Dash'
+import Login from './Components/Login'
+
 
 
 class App extends Component {
@@ -23,6 +25,7 @@ class App extends Component {
 
           <Route exact path="/" component={Landing} />
           <Route path="/Dash" component={Dash} />
+          <Route path="/Login" component={Login} />
           <Route path="/Case_Search" component={CaseSearch} />
           <Route path="/Case_Files" component={CaseFiles} />
           <Route path="/Field_Reports" component={FieldReports} />
