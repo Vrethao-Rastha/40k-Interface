@@ -27,7 +27,7 @@ class Landing extends Component {
           </Navbar>
 
           <Modal isOpen={this.state.modal} toggle={this.toggle} className="CaseSearchModal">
-          <ModalHeader className="CaseSearchModal"  toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader className="CaseSearchModal"  toggle={this.toggle}>Enter Credentials</ModalHeader>
           <ModalBody className="CaseSearchModal" >
             <Form>
               <FormGroup>

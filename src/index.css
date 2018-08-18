@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  overflow-y: auto
 }
 .Navbar {
   background-color: black;
@@ -117,11 +118,46 @@ body {
 .btns {
   margin-top: .5em;
   font-size: 15pt;
+  margin-bottom: 1em;
 }
 input[type=text] {
   border: 1px solid #850909;
   border-radius: 4px;
 }
 .modal-backdrop {
-    opacity:0.8 !important;
+    opacity: 0.9 !important;
+}
+.navDropdown {
+  color: #850909;
+  background-color: black;
+  padding: 0%;
+}
+.search-results {
+  background-image: url('../src/images/inquisition-warhammer-40k-31853-1920x1080.jpg');
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-background {
+  background-image: url('../src/images/inquisition_stamp_by_hikaru_119-d4u0rgc.jpg');
+  /*height: 100%;
+  width: 20%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-attachment: fixed;
+  background-size: cover;*/
+  background-position: top;
+  background-repeat: no-repeat;
 }
