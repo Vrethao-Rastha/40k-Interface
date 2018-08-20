@@ -68,7 +68,6 @@ class Dash extends Component {
   }
 
   render() {
-    console.log('state===================>', this.state)
     if(this.state.caseSearch === false && this.state.nameSearch === false && this.state.locationSearch === false){
       return (
         <div className="dash">
@@ -78,24 +77,26 @@ class Dash extends Component {
 
               <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
     </NavbarBrand>
+                <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
-    <UncontrolledDropdown className="navDropdown">
-        <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
-                  File Access
-                </DropdownToggle>
-        <DropdownMenu right className="navDropdown">
-                <DropdownItem className="navDropdown">
-                  <Button onClick={this.toggleCase}>Case Search</Button>
-                </DropdownItem>
 
-                <DropdownItem className="navDropdown">
-                  <Button  onClick={this.toggleName} className="navDropdown">Name Search</Button>
-                </DropdownItem>
-                <DropdownItem className="navDropdown">
-                  <Button onClick={this.toggleLocation} className="navDropdown">Location Search</Button>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+                <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+                    <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
+                              File Access
+                            </DropdownToggle>
+                    <DropdownMenu right className="navDropdown">
+                            <DropdownItem className="navDropdown">
+                              <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} onClick={this.toggleCase}>Case Search</Button>
+                            </DropdownItem>
+
+                            <DropdownItem className="navDropdown">
+                              <Button  onClick={this.toggleName} style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} className="navDropdown">Name Search</Button>
+                            </DropdownItem>
+                            <DropdownItem className="navDropdown">
+                              <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
+                            </DropdownItem>
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
 
               <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
 
@@ -118,24 +119,26 @@ class Dash extends Component {
 
             <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
   </NavbarBrand>
+              <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
-  <UncontrolledDropdown className="navDropdown">
-      <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
-                File Access
-              </DropdownToggle>
-      <DropdownMenu right className="navDropdown">
-              <DropdownItem className="navDropdown">
-                <Button onClick={this.toggleCase}>Case Search</Button>
-              </DropdownItem>
 
-              <DropdownItem className="navDropdown">
-                <Button  onClick={this.toggleName} className="navDropdown">Name Search</Button>
-              </DropdownItem>
-              <DropdownItem className="navDropdown">
-                <Button onClick={this.toggleLocation} className="navDropdown">Location Search</Button>
-              </DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
+              <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+                  <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
+                            File Access
+                          </DropdownToggle>
+                  <DropdownMenu right className="navDropdown">
+                          <DropdownItem className="navDropdown">
+                            <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} onClick={this.toggleCase}>Case Search</Button>
+                          </DropdownItem>
+
+                          <DropdownItem className="navDropdown">
+                            <Button  onClick={this.toggleName} style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} className="navDropdown">Name Search</Button>
+                          </DropdownItem>
+                          <DropdownItem className="navDropdown">
+                            <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
 
             <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
 
@@ -159,7 +162,7 @@ class Dash extends Component {
                       value={this.state.case}
                       onChange={e => this.setState({ case: e.target.value})}
                     />
-          <Button style={{marginTop:"1em"}} type="submit">Submit</Button>
+          <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
         </Form>
         </CardBody>
       </Card>
@@ -177,24 +180,26 @@ class Dash extends Component {
 
           <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
 </NavbarBrand>
+            <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
-<UncontrolledDropdown className="navDropdown">
-    <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
-              File Access
-            </DropdownToggle>
-    <DropdownMenu right className="navDropdown">
-            <DropdownItem className="navDropdown">
-              <Button onClick={this.toggleCase}>Case Search</Button>
-            </DropdownItem>
 
-            <DropdownItem className="navDropdown">
-              <Button  onClick={this.toggleName} className="navDropdown">Name Search</Button>
-            </DropdownItem>
-            <DropdownItem className="navDropdown">
-              <Button onClick={this.toggleLocation} className="navDropdown">Location Search</Button>
-            </DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
+            <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+                <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
+                          File Access
+                        </DropdownToggle>
+                <DropdownMenu right className="navDropdown">
+                        <DropdownItem className="navDropdown">
+                          <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} onClick={this.toggleCase}>Case Search</Button>
+                        </DropdownItem>
+
+                        <DropdownItem className="navDropdown">
+                          <Button  onClick={this.toggleName} style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} className="navDropdown">Name Search</Button>
+                        </DropdownItem>
+                        <DropdownItem className="navDropdown">
+                          <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
 
           <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
 
@@ -204,10 +209,10 @@ class Dash extends Component {
         </Navbar>
 
       </Col>
-      <Card className="col-md-6 offset-md-3">
+      <Card className="col-md-6 offset-md-3 navDropdown">
 
       <CardBody className="navDropdown">
-        <CardTitle className="navDropdown">Name Query</CardTitle>
+        <CardTitle>Name Query</CardTitle>
 
         <Form onSubmit={this.submitNameQuerry}>
           <Label className="btns" for="caseNumber-field">Enter Name Querry</Label>
@@ -219,7 +224,7 @@ class Dash extends Component {
                   value={this.state.name}
                   onChange={e => this.setState({ name: e.target.value})}
                 />
-        <Button type="submit">Submit</Button>
+        <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
         </Form>
       </CardBody>
     </Card>
@@ -237,24 +242,26 @@ class Dash extends Component {
 
           <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
 </NavbarBrand>
+            <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
-<UncontrolledDropdown className="navDropdown">
-    <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
-              File Access
-            </DropdownToggle>
-    <DropdownMenu right className="navDropdown">
-            <DropdownItem className="navDropdown">
-              <Button onClick={this.toggleCase}>Case Search</Button>
-            </DropdownItem>
 
-            <DropdownItem className="navDropdown">
-              <Button  onClick={this.toggleName} className="navDropdown">Name Search</Button>
-            </DropdownItem>
-            <DropdownItem className="navDropdown">
-              <Button onClick={this.toggleLocation} className="navDropdown">Location Search</Button>
-            </DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
+            <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+                <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
+                          File Access
+                        </DropdownToggle>
+                <DropdownMenu right className="navDropdown">
+                        <DropdownItem className="navDropdown">
+                          <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} onClick={this.toggleCase}>Case Search</Button>
+                        </DropdownItem>
+
+                        <DropdownItem className="navDropdown">
+                          <Button  onClick={this.toggleName} style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} className="navDropdown">Name Search</Button>
+                        </DropdownItem>
+                        <DropdownItem className="navDropdown">
+                          <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
 
           <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
 
@@ -264,7 +271,7 @@ class Dash extends Component {
         </Navbar>
 
       </Col>
-      <Card className="col-md-6 offset-md-3">
+      <Card className="col-md-6 offset-md-3 navDropdown">
       <CardBody className="navDropdown">
         <CardTitle className="navDropdown">Location Query</CardTitle>
         <Form onSubmit={this.submitLocationQuerry}>
@@ -277,7 +284,7 @@ class Dash extends Component {
                   value={this.state.location}
                   onChange={e => this.setState({ location: e.target.value})}
                 />
-        <Button style={{marginTop:"1em"}} type="submit">Submit</Button>
+        <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
         </Form>
       </CardBody>
     </Card>

@@ -5,7 +5,7 @@ import VoxDispatchReducer from './VoxDispatchReducer'
 import CaseSearchReducer from './CaseSearchReducer'
 import NameSearchReducer from './NameSearchReducer'
 import LocationSearchReducer from './LocationSearchReducer'
-
+import authReducer from './authReducer'
 
 
 
@@ -14,5 +14,6 @@ export default combineReducers({
   vox_dispatch: VoxDispatchReducer,
   case_search_result: CaseSearchReducer,
   name_search_result: NameSearchReducer,
-  location_search_result: LocationSearchReducer
+  location_search_result: LocationSearchReducer,
+  auth: authReducer
 })

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavbarBrand, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { Link, withRouter } from 'react-router-dom'
+import { userLogin } from '../Redux/Actions/authActions'
 
-
-class Landing extends Component {
+class Login extends Component {
   state = {
-    modal: false
+    modal: false,
+    user_name: '',
+    password: ''
   }
 
   componentDidMount(){
@@ -16,6 +21,12 @@ class Landing extends Component {
     this.setState({
       modal: !this.state.modal
     });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    console.log('kbkv')
+    this.props.userLogin(this.state, this.props.history)
   }
 
   render() {
@@ -40,7 +51,7 @@ class Landing extends Component {
                         name="name"
                         id="exampleName"
                         value={this.state.name}
-                        onChange={e => this.setState({ name: e.target.value})}
+                        onChange={e => this.setState({ user_name: e.target.value})}
                       />
 
 
@@ -48,19 +59,18 @@ class Landing extends Component {
 
                         <Input
                           className="put"
-                          type="location"
-                          name="location"
+                          type="password"
+                          name="password"
                           id="exampleLocation"
-                          value={this.state.location}
-                          onChange={e => this.setState({ location: e.target.value})}
+                          value={this.state.password}
+                          onChange={e => this.setState({ password: e.target.value})}
                         />
                       </FormGroup>
+                      <Button color="primary" onClick={this.handleSubmit}>Submit Authority</Button>
+                      <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                     </Form>
           </ModalBody>
-          <ModalFooter className="CaseSearchModal" >
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
+
         </Modal>
 
         </div>
@@ -68,4 +78,7 @@ class Landing extends Component {
     }
   }
 
-export default Landing;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  userLogin
+}, dispatch)
+  export default withRouter( connect(null, mapDispatchToProps)(Login));
