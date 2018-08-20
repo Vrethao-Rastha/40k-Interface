@@ -63,6 +63,10 @@ body {
   background-color: black;
   font-family: 'MedievalSharp', cursive;
 }
+.NavbarButtons:hover {
+  text-decoration: none;
+  color: #850909;
+}
 .CaseSearch {
   background-image: url('../src/images/the_inquisition_by_denizenoftehwarp.jpg');
   min-height: 100%;
@@ -160,4 +164,11 @@ input[type=text] {
   background-size: cover;*/
   background-position: top;
   background-repeat: no-repeat;
+
+  color: #850909;
+  font-size: 15pt;
+}
+.card-headings {
+  font-size: 20pt;
+  font-style: oblique;
 }

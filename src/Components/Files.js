@@ -13,17 +13,17 @@ const Files = (props) => {
   <div>
     <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-md-8 offset-md-2 card-background">
       <CardBody>
-        <CardTitle>First Name</CardTitle>
+        <CardTitle className="card-headings">First Name</CardTitle>
         <CardText>{props.file.First_Name}</CardText>
-        <CardTitle>Last Name</CardTitle>
+        <CardTitle className="card-headings">Last Name</CardTitle>
         <CardText>{props.file.Last_Name}</CardText>
-        <CardTitle>Address</CardTitle>
+        <CardTitle className="card-headings">Address</CardTitle>
         <CardText>{props.file.Address}</CardText>
-        <CardTitle>Hive Sub-City</CardTitle>
+        <CardTitle className="card-headings">Hive Sub-City</CardTitle>
         <CardText>{props.file.City}</CardText>
-        <CardTitle>Bio</CardTitle>
+        <CardTitle className="card-headings">Bio</CardTitle>
         <CardText>{props.file.Bio}</CardText>
-        <CardTitle>File Number</CardTitle>
+        <CardTitle className="card-headings">File Number</CardTitle>
         <CardText>{props.file.File_Number}</CardText>
       </CardBody>
     </Card>
