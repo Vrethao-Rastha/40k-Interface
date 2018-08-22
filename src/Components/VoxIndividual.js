@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { updateVoxLog } from '../Redux/Actions/VoxDispatchActions'
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Container, Col, Row, Navbar,
   NavbarToggler,
@@ -9,7 +12,15 @@ import { Card, CardImg, CardText, CardBody,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Form,
+  FormGroup,
+  Input,
+  Label } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import renderIf from './Util'
 import Skella1 from '../images/Skella1.jpg'
@@ -19,7 +30,28 @@ import Skella5 from '../images/Skella5.jpg'
 import Skella6 from '../images/Skella6.jpg'
 
 
-const VoxIndividual = (props) => {
+class VoxIndividual extends Component {
+
+  state ={
+    modal: false,
+    content: '',
+    pic: '',
+    name: '',
+    id: ''
+  }
+
+  handleEdit = e => {
+    this.props.updateVoxLog(this.state.content, this.state.name, this.state.id)
+  }
+
+  toggle = () => {
+  this.setState({
+    modal: !this.state.modal
+  });
+}
+
+  render(){
+    console.log(' props' ,this.props)
   return(
     <div>
 
@@ -43,13 +75,13 @@ const VoxIndividual = (props) => {
 
   <Container>
     <Card style={{borderRadius:"5%"}} className="container col-md-8 offset-md-2">
-      <CardTitle className="text-center">{props.message.name}</CardTitle>
+      <CardTitle className="text-center">{this.props.message.name}</CardTitle>
       <Row>
         <CardImg style={{height:'10em', width:"10em", marginBottom:"2em"}} src={Skella2} alt="Generic placeholder image" />
         <CardBody style={{fontSize:"20pt"}}>
-        <CardText className="text-center">{props.message.content}</CardText>
+        <CardText className="text-center">{this.props.message.content}</CardText>
 
-        {renderIf(localStorage.admin,
+        {renderIf(localStorage.admin === 'true',
                       <Button className="pull-right" style={{marginLeft:"2em"}} onClick={ this.toggle }>
                         Edit
                       </Button>
@@ -59,8 +91,60 @@ const VoxIndividual = (props) => {
       </Row>
 </Card>
   </Container>
+
+  <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+              <ModalBody>
+
+                <Col>
+                  <Form onSubmit={ this.handleEdit }>
+                    <FormGroup>
+                      Content
+                      <input
+                        type="text"
+                        name="text"
+                        id="text-field"
+                        value={ this.state.content }
+                        onChange={e => this.setState({ content: e.target.value, id: this.props.message.id })}
+
+                      />
+                    <br/>
+                      Name
+                      <input
+                        type="text"
+                        name="text"
+                        id="text-field"
+                        value={ this.state.name }
+                        onChange={e => this.setState({ name: e.target.value })}
+
+                      />
+                      <Col>
+
+
+                      </Col>
+
+                    </FormGroup>
+                    <ModalFooter>
+
+                      <Button type="submit" className="btn btn-secondary">Post</Button>
+                      <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                    </ModalFooter>
+                  </Form>
+                </Col>
+              </ModalBody>
+            </Modal>
+
 </div>
   )
+ }
 };
 
-export default VoxIndividual;
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({
+    updateVoxLog
+  }, dispatch)
+
+// const mapStateToProps = state => {
+//   message: state.message
+// }
+
+export default connect(null, mapDispatchToProps)(VoxIndividual);
