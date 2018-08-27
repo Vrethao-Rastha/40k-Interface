@@ -14,6 +14,7 @@ import Dash from './Components/Dash'
 import Login from './Components/Login'
 import LoginFail from './Components/LoginFail'
 import CheckAuth from './Components/CheckAuth'
+import Admin from './Components/Admin'
 
 
 class App extends Component {
@@ -22,14 +23,15 @@ class App extends Component {
       <Router>
         <Switch>
 
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/Login" component={Login} />
-          <Route exact path="/LoginFail" component={LoginFail} />
+          <Route exact path="/" component={ Landing } />
+          <Route exact path="/Login" component={ Login } />
+          <Route exact path="/LoginFail" component={ LoginFail } />
           <Route path="/Dash" component={ Dash } />
           <Route path="/Case_Search" component={ CaseSearch } />
           <Route path="/Case_Files" component={ CaseFiles } />
           <Route path="/Vox_Dispatch" component={ VoxDispatch } />
           <Route path="/Search_Results" component={ SearchResults } />
+          <Route path="/Admin" component={ Admin } />
         </Switch>
       </Router>
 
