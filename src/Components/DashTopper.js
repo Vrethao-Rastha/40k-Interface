@@ -21,7 +21,7 @@ const DashTopper = () => {
 
         <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
 </NavbarBrand>
-          <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+          <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
 
           <Link className="NavbarButtons" to="/Dash" style={{ fontSize:"15pt"}}>Back</Link>

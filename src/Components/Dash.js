@@ -18,6 +18,7 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
   import { Link } from 'react-router-dom'
+  import renderIf from './Util'
   import { fetchCaseReport, fetchNameReport, fetchLocationReport } from '../Redux/Actions/FieldReportActions'
 
 class Dash extends Component {
@@ -72,10 +73,10 @@ class Dash extends Component {
 
               <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
     </NavbarBrand>
-                <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+                <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
 
-                <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+                <UncontrolledDropdown className="navDropdown pull-left">
                     <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
                               File Access
                             </DropdownToggle>
@@ -90,11 +91,19 @@ class Dash extends Component {
                             <DropdownItem className="navDropdown">
                               <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
                             </DropdownItem>
+                            <DropdownItem>
+                            {renderIf(localStorage.admin === 'true',
+
+                            <Link className="NavbarButtons" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em", fontSize:"15pt"}} to="/Admin">Admin</Link>
+
+                          )}
+                          </DropdownItem>
                           </DropdownMenu>
                         </UncontrolledDropdown>
 
               <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
               <Button className="NavbarButtons" onClick={ this.logout }>Logout</Button>
+
 
               <Nav navbar>
 
@@ -108,17 +117,17 @@ class Dash extends Component {
 
 
     return (
-      <div className="dash">
+      <div className="Search">
         <Col>
           <Navbar className="Navbar">
 
 
             <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
   </NavbarBrand>
-              <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+              <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
 
-              <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+              <UncontrolledDropdown className="navDropdown pull-left">
                   <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
                             File Access
                           </DropdownToggle>
@@ -133,11 +142,19 @@ class Dash extends Component {
                           <DropdownItem className="navDropdown">
                             <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
                           </DropdownItem>
+                          <DropdownItem>
+                          {renderIf(localStorage.admin === 'true',
+
+                          <Link className="NavbarButtons" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em", fontSize:"15pt"}} to="/Admin">Admin</Link>
+
+                        )}
+                        </DropdownItem>
                         </DropdownMenu>
                       </UncontrolledDropdown>
 
             <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
             <Button className="NavbarButtons" onClick={ this.logout }>Logout</Button>
+
 
             <Nav navbar>
 
@@ -170,17 +187,17 @@ class Dash extends Component {
 
 
   return (
-    <div className="dash">
+    <div className="Search">
       <Col>
         <Navbar className="Navbar">
 
 
           <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
 </NavbarBrand>
-            <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+            <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
 
-            <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+            <UncontrolledDropdown className="navDropdown pull-left">
                 <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
                           File Access
                         </DropdownToggle>
@@ -195,11 +212,19 @@ class Dash extends Component {
                         <DropdownItem className="navDropdown">
                           <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
                         </DropdownItem>
+                        <DropdownItem>
+                        {renderIf(localStorage.admin === 'true',
+
+                        <Link className="NavbarButtons" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em", fontSize:"15pt"}} to="/Admin">Admin</Link>
+
+                      )}
+                      </DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
 
           <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
           <Button className="NavbarButtons" onClick={ this.logout }>Logout</Button>
+
 
           <Nav navbar>
 
@@ -233,17 +258,17 @@ class Dash extends Component {
 
 
   return (
-    <div className="dash">
+    <div className="Search">
       <Col>
         <Navbar className="Navbar">
 
 
           <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
 </NavbarBrand>
-            <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+            <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
 
-            <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+            <UncontrolledDropdown className="navDropdown pull-left">
                 <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
                           File Access
                         </DropdownToggle>
@@ -258,11 +283,19 @@ class Dash extends Component {
                         <DropdownItem className="navDropdown">
                           <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
                         </DropdownItem>
+                        <DropdownItem>
+                        {renderIf(localStorage.admin === 'true',
+
+                        <Link className="NavbarButtons" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em", fontSize:"15pt"}} to="/Admin">Admin</Link>
+
+                      )}
+                      </DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
 
           <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
           <Button className="NavbarButtons" onClick={ this.logout }>Logout</Button>
+
 
           <Nav navbar>
 

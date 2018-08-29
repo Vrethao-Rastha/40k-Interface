@@ -29,7 +29,6 @@ class VoxIndividual extends Component {
 
   handleDelete = e => {
     e.preventDefault()
-    console.log('dlfjnvkldfnvsdfv======>>>>>>>>>>>>>>')
     this.props.deleteVoxLog(this.props.message.id)
   }
 
@@ -38,6 +37,7 @@ class VoxIndividual extends Component {
   this.setState({
     modal: !this.state.modal
   });
+
 }
 
   render(){
@@ -55,7 +55,7 @@ class VoxIndividual extends Component {
           <Row>
 
             <Form onSubmit={ this.toggle }>
-            <Button type="submit" className="picButton" value={ this.props.message.avatar } onMouseEnter={ e => this.setState({avatar: e.target.value, picToggle: true })}>
+            <Button type="submit" className="picButton" value={ this.props.message.avatar } onClick={ e => this.setState({avatar: this.props.message.avatar, picToggle: true })}>
             <CardImg src={process.env.PUBLIC_URL + this.props.message.avatar} style={{height:'10em', width:"10em", marginBottom:"2em", marginLeft:"1em"}}
             />
           </Button>
