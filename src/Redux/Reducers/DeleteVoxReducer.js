@@ -7,7 +7,8 @@ import { DELETE_VOX_DISPATCH_SUCCESS,
   export default (state = initialState, action) => {
     switch(action.type) {
         case DELETE_VOX_DISPATCH_SUCCESS:
-          return [...action.payload]
+        let deletedPost = action.payload
+      return state.filter(vox => vox.id !== deletedPost.id)
         case DELETE_VOX_DISPATCH_FAILED:
           return action.payload
       default:

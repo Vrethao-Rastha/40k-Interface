@@ -62,10 +62,13 @@ body {
   padding: 0px;
   background-color: black;
   font-family: 'MedievalSharp', cursive;
+  border: none;
 }
 .NavbarButtons:hover {
   text-decoration: none;
-  color: #850909;
+  color: white;
+  border: none;
+  background: none;
 }
 .CaseSearch {
   background-image: url('../src/images/the_inquisition_by_denizenoftehwarp.jpg');
@@ -192,4 +195,12 @@ input[type=text] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.picButton {
+  border: none;
+  background: none;
+}
+.picButton:hover {
+  border: none;
+  background: none;
 }

@@ -34,7 +34,7 @@ class Login extends Component {
       return (
         <div className="Login">
           <Navbar className="Navbar">
-            <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition</NavbarBrand>
+            <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition</NavbarBrand>
           </Navbar>
 
           <Modal isOpen={this.state.modal} toggle={this.toggle} className="CaseSearchModal">
@@ -66,8 +66,7 @@ class Login extends Component {
                           onChange={e => this.setState({ password: e.target.value})}
                         />
                       </FormGroup>
-                      <Button color="primary" onClick={this.handleSubmit}>Submit Authority</Button>
-                      <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                      <Button className="NavbarButtons" style={{marginLeft:"10em"}} onClick={this.handleSubmit}>Submit Authority</Button>
                     </Form>
           </ModalBody>
 

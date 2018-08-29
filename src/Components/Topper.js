@@ -22,10 +22,12 @@ const Topper = () => {
         <Navbar className="Navbar">
 
 
-          <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
-</NavbarBrand>
-          <Link className="NavbarButtons" to="/Dash" style={{marginLeft:"3em", fontSize:"15pt"}}>Return</Link>
-          {/* <Link className="NavbarButtons" to="/File_Case" style={{ fontSize:"15pt"}}>File a Report</Link> */}
+          <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
+          </NavbarBrand>
+
+          <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+
+          <Link className="NavbarButtons" to="/Dash" style={{marginLeft:"15em", fontSize:"15pt"}}>Return</Link>
           <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
 
           <Nav navbar>

@@ -2,23 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
+import { userLogout } from '../Redux/Actions/authActions'
 import {
-  Form, FormGroup, Input, Label,
+  Form, Input, Label,
   Button,
   Card,
-  CardImg,
-  CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
-  Collapse,
   Col,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -49,21 +43,22 @@ class Dash extends Component {
     this.setState({locationSearch: !this.state.locationSearch, nameSearch:false, caseSearch: false})
   }
 
+  logout = (e) => {
+    this.props.userLogout(this.props.history)
+  }
+
   submitNameQuerry = (e) => {
     e.preventDefault()
-    console.log('yup')
     this.props.fetchNameReport(this.state.name, this.props.history)
   }
 
   submitCaseQuerry = (e) => {
     e.preventDefault()
-    console.log('yup')
     this.props.fetchCaseReport(this.state.case, this.props.history)
   }
 
   submitLocationQuerry = (e) => {
     e.preventDefault()
-    console.log('yup')
     this.props.fetchLocationReport(this.state.location, this.props.history)
   }
 
@@ -75,7 +70,7 @@ class Dash extends Component {
             <Navbar className="Navbar">
 
 
-              <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
+              <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
     </NavbarBrand>
                 <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
@@ -99,6 +94,7 @@ class Dash extends Component {
                         </UncontrolledDropdown>
 
               <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
+              <Button className="NavbarButtons" onClick={ this.logout }>Logout</Button>
 
               <Nav navbar>
 
@@ -117,7 +113,7 @@ class Dash extends Component {
           <Navbar className="Navbar">
 
 
-            <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
+            <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
   </NavbarBrand>
               <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
@@ -141,6 +137,7 @@ class Dash extends Component {
                       </UncontrolledDropdown>
 
             <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
+            <Button className="NavbarButtons" onClick={ this.logout }>Logout</Button>
 
             <Nav navbar>
 
@@ -178,7 +175,7 @@ class Dash extends Component {
         <Navbar className="Navbar">
 
 
-          <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
+          <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
 </NavbarBrand>
             <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
@@ -202,6 +199,7 @@ class Dash extends Component {
                     </UncontrolledDropdown>
 
           <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
+          <Button className="NavbarButtons" onClick={ this.logout }>Logout</Button>
 
           <Nav navbar>
 
@@ -240,7 +238,7 @@ class Dash extends Component {
         <Navbar className="Navbar">
 
 
-          <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "images/images.png"} />His Majesty's Holy Inquisition
+          <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
 </NavbarBrand>
             <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 
@@ -264,6 +262,7 @@ class Dash extends Component {
                     </UncontrolledDropdown>
 
           <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
+          <Button className="NavbarButtons" onClick={ this.logout }>Logout</Button>
 
           <Nav navbar>
 
@@ -298,7 +297,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({
   fetchCaseReport,
   fetchNameReport,
-  fetchLocationReport
+  fetchLocationReport,
+  userLogout
 }, dispatch)
 
 export default withRouter(connect(null, mapDispatchToProps)(Dash));

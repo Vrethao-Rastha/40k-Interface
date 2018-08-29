@@ -3,25 +3,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import VoxIndividual from './VoxIndividual'
 import { addVoxLog } from '../Redux/Actions/VoxDispatchActions'
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, Container, Col, Row, Navbar,
-  NavbarToggler,
+import {
+  Navbar,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Form,
-  FormGroup,
-  Input,
-  Label } from 'reactstrap';
+   } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import renderIf from './Util'
 
@@ -66,12 +52,12 @@ class VoxDispatch extends Component {
           </Nav>
         </Navbar>
 
-        <Container>
+
 
 
         {logs}
 
-      </Container>
+
       </div>
     );
   }

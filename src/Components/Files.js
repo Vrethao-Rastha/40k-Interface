@@ -1,11 +1,9 @@
 import React from 'react';
 import {
   Card,
-  CardImg,
   CardText,
   CardBody,
-  CardTitle,
-  CardSubtitle
+  CardTitle
 } from 'reactstrap'
 
 const Files = (props) => {

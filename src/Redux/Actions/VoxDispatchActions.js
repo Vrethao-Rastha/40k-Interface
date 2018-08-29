@@ -45,7 +45,6 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
   }
 
   export const deleteVoxLog = (id) => {
-    console.log('??????????', id)
     return dispatch => {
       axios.delete(`http://localhost:8000/vox_dispatch/${id}`)
       .then(res => dispatch({

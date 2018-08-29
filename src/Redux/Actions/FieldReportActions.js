@@ -3,6 +3,10 @@ import axios from 'axios'
 export const FETCH_FIELD_REPORTS_SUCCESS = 'FETCH_FIELD_REPORTS_SUCCESS'
 export const FETCH_FIELD_REPORTS_FAILED =  'FETCH_FIELD_REPORTS_FAILED'
 
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
+export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
+
+
 export const FETCH_NAME_REPORT_SUCCESS =  'FETCH_NAME_REPORT_SUCCESS'
 export const FETCH_NAME_REPORT_FAILED =  'FETCH_NAME_REPORT_FAILED'
 export const FETCH_CASE_REPORT_SUCCESS =  'FETCH_CASE_REPORT_SUCCESS'
@@ -26,9 +30,22 @@ export const fetchFieldReports = () => {
     }
   }
 
+  export const fetchUser = () => {
+      return dispatch => {
+        axios.get('http://localhost:8000/users/')
+        .then(res => dispatch({
+          type: FETCH_USER_SUCCESS,
+          payload: res.data
+        }))
+        .catch(err => dispatch({
+          type: FETCH_USER_FAILED,
+          payload: err
+        }))
+      }
+    }
+
 export const fetchCaseReport = (case_number, history) => {
-  console.log('working', case_number)
-  return dispatch => {
+  return async dispatch => {
     console.log('still working', case_number)
     axios.post(`http://localhost:8000/file_search/`, {case_number})
     .then(res=> dispatch({

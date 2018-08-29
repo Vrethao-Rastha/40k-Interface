@@ -3,25 +3,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import VoxIndividual from './VoxIndividual'
 import { addVoxLog, updateVoxLog, addCaseFile } from '../Redux/Actions/VoxDispatchActions'
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, Container, Col, Row, Navbar,
-  NavbarToggler,
+import { Card,
+  Button, Col, CardTitle, Navbar,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Form,
-  FormGroup,
-  Input,
-  Label } from 'reactstrap';
+  Form
+   } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import renderIf from './Util'
 
@@ -49,7 +40,6 @@ class Admin extends Component {
   }
 
   handleEdit = e => {
-    e.preventDefault()
     this.props.updateVoxLog(this.state.content, this.state.name, this.state.id)
   }
 
@@ -63,6 +53,39 @@ class Admin extends Component {
     const logs = this.props.vox.map(message => <VoxIndividual key={message.id} message={message} /> )
     return (
       <div>
+
+        <Navbar className="Navbar">
+
+
+          <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
+</NavbarBrand>
+            <NavbarBrand style={{marginLeft:"25em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+
+
+            <UncontrolledDropdown className="navDropdown" style={{marginLeft:"15em"}}>
+                <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none"}} caret>
+                          File Access
+                        </DropdownToggle>
+                <DropdownMenu right className="navDropdown">
+                        <DropdownItem className="navDropdown">
+                          <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} onClick={this.toggleCase}>Case Search</Button>
+                        </DropdownItem>
+
+                        <DropdownItem className="navDropdown">
+                          <Button  onClick={this.toggleName} style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} className="navDropdown">Name Search</Button>
+                        </DropdownItem>
+                        <DropdownItem className="navDropdown">
+                          <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
+
+          <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
+
+          <Nav navbar>
+
+          </Nav>
+        </Navbar>
 
           {renderIf(localStorage.admin === 'true',
           <div className="container-fluid">
@@ -97,6 +120,18 @@ class Admin extends Component {
                                   onChange={e => this.setState({ addAvatar: e.target.value })}
 
                                 />
+                                <ul>
+                                  <li>/chess.jpg</li>
+                                  <li>/Drog1.jpg</li>
+                                  <li>/dude.jpg</li>
+                                  <li>/eisenhorn-01.jpg</li>
+                                  <li>/eldar.jpg</li>
+                                  <li>/juliana.jpg</li>
+                                  <li>/Sister Of Battle.jpg</li>
+                                  <li>/tarot.png</li>
+                                  <li>/tattoo.png</li>
+
+                                </ul>
 
                                 <br/>
 
