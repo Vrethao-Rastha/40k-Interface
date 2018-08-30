@@ -8,9 +8,9 @@ export const USER_REGISTER_FAILED = 'USER_REGISTER_FAILED'
 export const USER_LOGOUT = 'USER_LOGOUT'
 
 export const userLogin = (creds, history) => {
-  console.log('creds', creds, 'hist',history)
-
+  console.log('creds', creds)
   return async dispatch => {
+    console.log('??')
 
     try {
       let response = await axios.post(`http://localhost:8000/login`, creds)

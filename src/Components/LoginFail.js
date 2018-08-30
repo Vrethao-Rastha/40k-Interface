@@ -13,6 +13,8 @@ class LoginFail extends Component {
 
     render() {
     if(this.state.toggle === true){
+      //setTimeout(() => {this.setState({toggle: !this.state.toggle})}, 1000)
+
       return (
         <div>
           <div className="fail"></div>
@@ -20,6 +22,8 @@ class LoginFail extends Component {
         </div>
       );
     }else {
+      //setTimeout(() => {this.setState({toggle: !this.state.toggle})}, 1000)
+
       return(
         <div>
           <div className="fail"></div>

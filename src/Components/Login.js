@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 import { Link, withRouter } from 'react-router-dom'
 import { userLogin } from '../Redux/Actions/authActions'
 import ParticleEffectButton from 'react-particle-effect-button'
+import ReactGlitch from 'react-glitch';
+import renderIf from './Util'
 
 
 class Login extends Component {
@@ -13,7 +15,8 @@ class Login extends Component {
     user_name: '',
     password: '',
     hidden: false,
-    animating: false
+    animating: false,
+    glitch: false
   }
 
   componentDidMount(){
@@ -32,9 +35,10 @@ class Login extends Component {
 
     this.setState({
       hidden: !this.state.hidden,
-      animating: true
+      animating: true,
+      glitch: true
     })
-    setTimeout(() => {this.props.userLogin(this.state, this.props.history)}, 1500)
+    setTimeout(() => {this.props.userLogin(this.state, this.props.history)}, 3000)
   }
 
   // handleSubmit = e => {
@@ -55,12 +59,32 @@ class Login extends Component {
       hidden,
       animating
     } = this.state
-
+    console.log('state=================>>>',this.state)
       return (
-        <div className="Login">
+        <div>
+          {renderIf(this.state.glitch === false,
+          <div className="Login"></div>
+        )}
+
           <Navbar className="Navbar">
             <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition</NavbarBrand>
           </Navbar>
+
+
+          {renderIf(this.state.glitch === true,
+          <ReactGlitch className="glitch"
+
+            src={require('../images/ravenor-cross-inquisition-wallpaper.jpg')} // (Required)
+            glitching={true} // (Required)
+            glitchOptions={{ // (Required)
+              seed: [45], // Number or Array[Number]
+              quality: 99, // Number or Array[Number]
+              amount: 20, // Number or Array[Number]
+              iterations: [35] // Number or Array[Number]
+            }}
+            speed={[100]} // (Required)
+          />
+        )}
 
           <Modal isOpen={this.state.modal} toggle={this.toggle} className="CaseSearchModal">
           <ModalHeader className="CaseSearchModal"  toggle={this.toggle}>Enter Credentials</ModalHeader>
@@ -75,7 +99,7 @@ class Login extends Component {
                         type="name"
                         name="name"
                         id="exampleName"
-                        value={this.state.name}
+                        value={this.state.user_name}
                         onChange={e => this.setState({ user_name: e.target.value})}
                       />
 
