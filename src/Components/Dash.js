@@ -19,6 +19,7 @@ import {
   DropdownItem } from 'reactstrap';
   import { Link } from 'react-router-dom'
   import renderIf from './Util'
+  import ParticleEffectButton from 'react-particle-effect-button'
   import { fetchCaseReport, fetchNameReport, fetchLocationReport } from '../Redux/Actions/FieldReportActions'
 
 class Dash extends Component {
@@ -29,7 +30,9 @@ class Dash extends Component {
     locationSearch: false,
     name: '',
     location: '',
-    case: ''
+    case: '',
+    hidden: false,
+    animating: false
   }
 
   toggleCase = () => {
@@ -50,20 +53,49 @@ class Dash extends Component {
 
   submitNameQuerry = (e) => {
     e.preventDefault()
-    this.props.fetchNameReport(this.state.name, this.props.history)
+    if (this.state.animating) return
+    this.setState({
+      hidden: !this.state.hidden,
+      animating: true
+    })
+    setTimeout(() => {this.props.fetchNameReport(this.state.name, this.props.history)}, 1500)
   }
 
   submitCaseQuerry = (e) => {
     e.preventDefault()
-    this.props.fetchCaseReport(this.state.case, this.props.history)
+    if (this.state.animating) return
+    this.setState({
+      hidden: !this.state.hidden,
+      animating: true
+    })
+    setTimeout(() => {this.props.fetchCaseReport(this.state.case, this.props.history)}, 1500)
   }
 
   submitLocationQuerry = (e) => {
     e.preventDefault()
-    this.props.fetchLocationReport(this.state.location, this.props.history)
+
+    if (this.state.animating) return
+    this.setState({
+      hidden: !this.state.hidden,
+      animating: true
+    })
+    setTimeout(() => {this.props.fetchLocationReport(this.state.location, this.props.history)}, 1500)
   }
 
   render() {
+
+    const {
+      background,
+      text,
+      buttonStyles,
+      buttonOptions
+    } = this.props
+
+    const {
+      hidden,
+      animating
+    } = this.state
+
     if(this.state.caseSearch === false && this.state.nameSearch === false && this.state.locationSearch === false){
       return (
         <div className="dash">
@@ -176,7 +208,17 @@ class Dash extends Component {
                       value={this.state.case}
                       onChange={e => this.setState({ case: e.target.value})}
                     />
-          <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+
+                    <ParticleEffectButton
+                      hidden={hidden}
+                      color='#850909'
+
+                    >
+                      <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+
+                    </ParticleEffectButton>
+
+
         </Form>
         </CardBody>
       </Card>
@@ -247,7 +289,17 @@ class Dash extends Component {
                   value={this.state.name}
                   onChange={e => this.setState({ name: e.target.value})}
                 />
-        <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+
+                <ParticleEffectButton
+                  hidden={hidden}
+                  color='#850909'
+
+                >
+                  <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+
+                </ParticleEffectButton>
+
+
         </Form>
       </CardBody>
     </Card>
@@ -316,7 +368,17 @@ class Dash extends Component {
                   value={this.state.location}
                   onChange={e => this.setState({ location: e.target.value})}
                 />
-        <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+
+                <ParticleEffectButton
+                  hidden={hidden}
+                  color='#850909'
+
+                >
+                  <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+
+                </ParticleEffectButton>
+
+
         </Form>
       </CardBody>
     </Card>

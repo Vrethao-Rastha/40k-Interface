@@ -4,12 +4,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link, withRouter } from 'react-router-dom'
 import { userLogin } from '../Redux/Actions/authActions'
+import ParticleEffectButton from 'react-particle-effect-button'
+
 
 class Login extends Component {
   state = {
     modal: false,
     user_name: '',
-    password: ''
+    password: '',
+    hidden: false,
+    animating: false
   }
 
   componentDidMount(){
@@ -23,13 +27,34 @@ class Login extends Component {
     });
   }
 
-  handleSubmit = e => {
-    e.preventDefault()
-    console.log('kbkv')
-    this.props.userLogin(this.state, this.props.history)
+  _onToggle = () => {
+    if (this.state.animating) return
+
+    this.setState({
+      hidden: !this.state.hidden,
+      animating: true
+    })
+    setTimeout(() => {this.props.userLogin(this.state, this.props.history)}, 1500)
   }
 
+  // handleSubmit = e => {
+  //   e.preventDefault()
+  //   setTimeout(() => {this.props.userLogin(this.state, this.props.history)}, 3000)
+  // }
+
   render() {
+
+    const {
+      background,
+      text,
+      buttonStyles,
+      buttonOptions
+    } = this.props
+
+    const {
+      hidden,
+      animating
+    } = this.state
 
       return (
         <div className="Login">
@@ -66,7 +91,34 @@ class Login extends Component {
                           onChange={e => this.setState({ password: e.target.value})}
                         />
                       </FormGroup>
-                      <Button className="NavbarButtons" style={{marginLeft:"10em"}} onClick={this.handleSubmit}>Submit Authority</Button>
+
+                      <div>
+
+
+        <ParticleEffectButton
+          hidden={hidden}
+          color='#850909'
+          onComplete={this._onAnimationComplete}
+          {...buttonOptions}
+        >
+          <Button className="NavbarButtons" style={{marginLeft:"10em"}} onClick={this.handleSubmit}
+            style={{
+              background: '#850909',
+              color: '#fff',
+              padding: '1.5rem 3rem',
+              border: '0',
+              borderRadius: 5,
+              cursor: 'pointer',
+              fontSize: '1.2em',
+              marginLeft: '5.5em',
+              ...buttonStyles
+            }}
+            onClick={this._onToggle}
+            >Submit Authority
+          </Button>
+        </ParticleEffectButton>
+      </div>
+                      {/* <Button className="NavbarButtons" style={{marginLeft:"10em"}} onClick={this.handleSubmit}>Submit Authority</Button> */}
                     </Form>
           </ModalBody>
 
