@@ -5,8 +5,6 @@ import {
   Switch
 } from 'react-router-dom'
 import Landing from './Components/Landing'
-// import CaseSearch from './Components/CaseSearch'
-// import CaseFiles from './Components/CaseFiles'
 import VoxDispatch from './Components/VoxDispatch'
 import SearchResults from './Components/SearchResults'
 import Dash from './Components/Dash'
@@ -28,8 +26,6 @@ class App extends Component {
           <Route exact path="/Login" component={ Login } />
           <Route exact path="/LoginFail" component={ LoginFail } />
           <Route path="/Dash" component={ CheckAuth(Dash) } />
-          {/* <Route path="/Case_Search" component={ CaseSearch } /> */}
-          {/* <Route path="/Case_Files" component={ CaseFiles } /> */}
           <Route path="/Vox_Dispatch" component={ CheckAuth(VoxDispatch) } />
           <Route path="/Search_Results" component={ CheckAuth(SearchResults) } />
           <Route path="/Admin" component={ CheckAuth(Admin) } />

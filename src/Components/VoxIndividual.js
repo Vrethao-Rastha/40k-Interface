@@ -41,42 +41,38 @@ class VoxIndividual extends Component {
 }
 
   render(){
-    console.log(' props=========>' ,this.props, 'state', this.state)
     if(this.props.message){
       return(
         <div>
 
-
-
-
-
-        <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-md-8 offset-md-2">
+        <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-md-10 offset-md-1">
           <CardTitle className="text-center">VOX LOG ID: {this.props.message.caseNumber}</CardTitle>
           <CardTitle className="text-center">SENDER: {this.props.message.senderName}</CardTitle>
 
           <Row>
 
             <Form onSubmit={ this.toggle }>
-            <Button type="submit" className="picButton" value={ this.props.message.avatar } onClick={ e => this.setState({avatar: this.props.message.avatar, picToggle: true })}>
-            <CardImg src={process.env.PUBLIC_URL + this.props.message.avatar} style={{height:'15em', width:"10em", marginBottom:"2em", marginLeft:"1em"}}
-            />
-          </Button>
+              <Button type="submit" className="picButton" value={ this.props.message.avatar } onClick={ e => this.setState({avatar: this.props.message.avatar, picToggle: true })}>
+          
+               <CardImg src={process.env.PUBLIC_URL + this.props.message.avatar} style={{height:'15em', width:"10em", marginBottom:"2em", marginLeft:"1em"}}
+              />
+             </Button>
         </Form>
-            <CardBody className="text-center col-md-10" style={{fontSize:"20pt"}}>
+            <CardBody style={{fontSize:"20pt"}}>
             <CardText className="admin-content" style={{padding:"0"}}>{this.props.message.content}</CardText>
 
             {renderIf(localStorage.admin === 'true',
             <div>
-                          <Button className="pull-right" style={{marginLeft:"1em"}} onClick={ this.toggle }>
+              <Button className="pull-right" style={{marginLeft:"1em"}} onClick={ this.toggle }>
                             Edit
-                          </Button>
-                          <Form onSubmit={ this.handleDelete }>
-                          <Button className="pull-right" type="submit" value={this.props.message.id} onClick={ e => this.setState({id: e.target.value}) } style={{marginLeft:"2em"}}>
-                            Delete
-                          </Button>
-                        </Form>
-                        </div>
-                        )}
+              </Button>
+               <Form onSubmit={ this.handleDelete }>
+                 <Button className="pull-right" type="submit" value={this.props.message.id} onClick={ e => this.setState({id: e.target.value}) } style={{marginLeft:"2em"}}>
+                   Delete
+                 </Button>
+               </Form>
+             </div>
+                )}
 
 
 

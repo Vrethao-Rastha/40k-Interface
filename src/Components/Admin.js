@@ -6,11 +6,6 @@ import { addVoxLog, updateVoxLog, addCaseFile } from '../Redux/Actions/VoxDispat
 import { Card,
   Button, Col, CardTitle, Navbar,
   NavbarBrand,
-  Nav,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Form
    } from 'reactstrap';
 import { Link } from 'react-router-dom'
@@ -46,6 +41,7 @@ class Admin extends Component {
   }
 
   addCase = e => {
+    console.log('ran')
     this.props.addCaseFile(this.state.First_Name, this.state.Last_Name, this.state.Address, this.state.City, this.state.Bio, this.state.File_Number)
   }
 

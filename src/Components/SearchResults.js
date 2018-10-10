@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Card, CardTitle } from 'reactstrap';
 import DashTopper from './DashTopper'
 import Files from './Files'
-import renderIf from './Util'
 
 
 class SearcResults extends Component {
@@ -13,8 +12,6 @@ class SearcResults extends Component {
     let locationResults = this.props.location_search_result.map(file => <Files key={ file.id} file={ file } />)
 
     if(caseResults.length === 0 && locationResults.length === 0 && nameResults.length === 0) {
-
-      console.log('the props============>', this.props)
 
       return(
         <div>
@@ -39,12 +36,9 @@ class SearcResults extends Component {
 
             { nameResults }
 
-
-
         </div>
       );
     }else if(nameResults.length === 0 && locationResults.length === 0){
-
 
       return (
         <div>
@@ -53,11 +47,9 @@ class SearcResults extends Component {
         <DashTopper />
           { caseResults }
 
-
         </div>
       );
     }else if(caseResults.length === 0 && nameResults.length === 0){
-
 
       return (
         <div>
@@ -66,8 +58,6 @@ class SearcResults extends Component {
           <DashTopper />
 
             { locationResults }
-
-
 
         </div>
       );

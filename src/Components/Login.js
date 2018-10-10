@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavbarBrand, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap'
+import { Navbar, NavbarBrand, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { userLogin } from '../Redux/Actions/authActions'
 import ParticleEffectButton from 'react-particle-effect-button'
 import ReactGlitch from 'react-glitch';
@@ -42,25 +42,16 @@ class Login extends Component {
     setTimeout(() => {this.props.userLogin(this.state, this.props.history)}, 3000)
   }
 
-  // handleSubmit = e => {
-  //   e.preventDefault()
-  //   setTimeout(() => {this.props.userLogin(this.state, this.props.history)}, 3000)
-  // }
-
   render() {
 
     const {
-      background,
-      text,
       buttonStyles,
       buttonOptions
     } = this.props
 
     const {
       hidden,
-      animating
     } = this.state
-    console.log('state=================>>>',this.state)
       return (
         <div>
           {renderIf(this.state.glitch === false,
@@ -75,15 +66,15 @@ class Login extends Component {
           {renderIf(this.state.glitch === true,
           <ReactGlitch className="glitch"
 
-            src={require('../images/ravenor-cross-inquisition-wallpaper.jpg')} // (Required)
-            glitching={true} // (Required)
-            glitchOptions={{ // (Required)
-              seed: [45], // Number or Array[Number]
-              quality: 99, // Number or Array[Number]
-              amount: 20, // Number or Array[Number]
-              iterations: [35] // Number or Array[Number]
+            src={require('../images/ravenor-cross-inquisition-wallpaper.jpg')} 
+            glitching={true} 
+            glitchOptions={{ 
+              seed: [45], 
+              quality: 99, 
+              amount: 20, 
+              iterations: [35] 
             }}
-            speed={[0]} // (Required)
+            speed={[0]} 
           />
         )}
 
@@ -120,36 +111,36 @@ class Login extends Component {
                       <div>
 
 
-        <ParticleEffectButton
-          hidden={hidden}
-          color='#850909'
-          onComplete={this._onAnimationComplete}
-          {...buttonOptions}
-        >
-          <Button className="NavbarButtons" style={{marginLeft:"10em"}} onClick={this.handleSubmit}
-            style={{
-              background: '#850909',
-              color: '#fff',
-              padding: '1.5rem 3rem',
-              border: '0',
-              borderRadius: 5,
-              cursor: 'pointer',
-              fontSize: '1.2em',
-              marginLeft: '5.5em',
-              ...buttonStyles
-            }}
-            onClick={this._onToggle}
-            >Submit Authority
-          </Button>
+            <ParticleEffectButton
+             hidden={hidden}
+             color='#850909'
+             onComplete={this._onAnimationComplete}
+            {...buttonOptions}
+             >
+
+             <Button className="NavbarButtons" style={{marginLeft:"10em"}} onClick={this.handleSubmit}
+                style={{
+                background: '#850909',
+                color: '#fff',
+                padding: '1.5rem 3rem',
+                border: '0',
+                borderRadius: 5,
+                cursor: 'pointer',
+                fontSize: '1.2em',
+                marginLeft: '5.5em',
+               ...buttonStyles
+              }}
+              onClick={this._onToggle}
+              >Submit Authority
+           </Button>
         </ParticleEffectButton>
       </div>
-                      {/* <Button className="NavbarButtons" style={{marginLeft:"10em"}} onClick={this.handleSubmit}>Submit Authority</Button> */}
-                    </Form>
-          </ModalBody>
+   </Form>
+ </ModalBody>
 
-        </Modal>
+  </Modal>
 
-        </div>
+</div>
       );
     }
   }

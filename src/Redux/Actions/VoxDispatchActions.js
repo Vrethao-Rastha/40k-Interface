@@ -59,11 +59,6 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
   }
 
   export const addVoxLog = (content, addSenderName , addCaseNumber, avatar  ) => {
-    console.log('content', content)
-    console.log('avatar', avatar)
-    console.log('addCaseNumber', addCaseNumber)
-    console.log('addSenderName', addSenderName)
-
     return dispatch => {
       axios.post(`https://young-tundra-99453.herokuapp.com/vox_dispatch/`, { content, addSenderName , addCaseNumber, avatar})
       .then(res => dispatch({

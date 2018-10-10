@@ -14,7 +14,6 @@ export const userLogin = (creds, history) => {
     try {
       let response = await axios.post(`https://young-tundra-99453.herokuapp.com/login`, creds)
       let user = response.data
-      console.log('??', user)
       dispatch({
         type: USER_LOGIN_SUCCESS,
         payload: user
