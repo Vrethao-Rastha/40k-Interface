@@ -31,12 +31,13 @@ class Login extends Component {
   }
 
   _onToggle = () => {
+    this.setState({glitch: true})
     if (this.state.animating) return
 
     this.setState({
+
       hidden: !this.state.hidden,
       animating: true,
-      glitch: true
     })
     setTimeout(() => {this.props.userLogin(this.state, this.props.history)}, 3000)
   }
@@ -82,7 +83,7 @@ class Login extends Component {
               amount: 20, // Number or Array[Number]
               iterations: [35] // Number or Array[Number]
             }}
-            speed={[100]} // (Required)
+            speed={[0]} // (Required)
           />
         )}
 

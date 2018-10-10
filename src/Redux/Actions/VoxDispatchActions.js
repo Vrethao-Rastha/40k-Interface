@@ -18,7 +18,7 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
 
   export const fetchVoxDispatch = () => {
     return dispatch => {
-    axios.get(`http://localhost:8000/vox_dispatch/`)
+    axios.get(`https://young-tundra-99453.herokuapp.com/vox_dispatch/`)
     .then(res => dispatch({
       type: FETCH_VOX_DISPATCH_SUCCESS,
       payload: res.data
@@ -30,9 +30,9 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
   }
 }
 
-  export const updateVoxLog = (content, name, id) => {
+  export const updateVoxLog = (content, caseNumber, senderName, id) => {
     return dispatch => {
-      axios.put(`http://localhost:8000/vox_dispatch/`, { content, name, id })
+      axios.put(`https://young-tundra-99453.herokuapp.com/vox_dispatch/`, { content, caseNumber, senderName , id })
       .then(res => dispatch({
         type: UPDATE_VOX_DISPATCH_SUCCESS,
         payload: res.data
@@ -46,7 +46,7 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
 
   export const deleteVoxLog = (id) => {
     return dispatch => {
-      axios.delete(`http://localhost:8000/vox_dispatch/${id}`)
+      axios.delete(`https://young-tundra-99453.herokuapp.com/vox_dispatch/${id}`)
       .then(res => dispatch({
         type: DELETE_VOX_DISPATCH_SUCCESS,
         payload: res.data
@@ -58,9 +58,14 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
     }
   }
 
-  export const addVoxLog = (content, avatar, name) => {
+  export const addVoxLog = (content, addSenderName , addCaseNumber, avatar  ) => {
+    console.log('content', content)
+    console.log('avatar', avatar)
+    console.log('addCaseNumber', addCaseNumber)
+    console.log('addSenderName', addSenderName)
+
     return dispatch => {
-      axios.post(`http://localhost:8000/vox_dispatch/`, { content, avatar, name })
+      axios.post(`https://young-tundra-99453.herokuapp.com/vox_dispatch/`, { content, addSenderName , addCaseNumber, avatar})
       .then(res => dispatch({
         type: ADD_VOX_DISPATCH_SUCCESS,
         payload: res.data
@@ -74,7 +79,7 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
 
   export const addCaseFile = (First_Name, Last_Name, Address, City, Bio, File_Number) => {
     return dispatch => {
-      axios.post(`http://localhost:8000/add_case_file/`, { First_Name, Last_Name, Address, City, Bio, File_Number })
+      axios.post(`https://young-tundra-99453.herokuapp.com/add_case_file/`, { First_Name, Last_Name, Address, City, Bio, File_Number })
       .then(res => dispatch ({
         type: ADD_CASE_FILE_SUCCESS,
         payload: res.data

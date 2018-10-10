@@ -18,13 +18,13 @@ class VoxIndividual extends Component {
     modal: false,
     content: '',
     avatar: '',
-    name: '',
+    caseNumber: '',
     id: '',
     picToggle: false
   }
 
   handleEdit = e => {
-    this.props.updateVoxLog(this.state.content, this.state.name, this.state.id)
+    this.props.updateVoxLog(this.state.content, this.state.caseNumber, this.state.id)
   }
 
   handleDelete = e => {
@@ -42,7 +42,7 @@ class VoxIndividual extends Component {
 
   render(){
     console.log(' props=========>' ,this.props, 'state', this.state)
-    if(this.props.message.avatar){
+    if(this.props.message){
       return(
         <div>
 
@@ -51,17 +51,19 @@ class VoxIndividual extends Component {
 
 
         <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-md-8 offset-md-2">
-          <CardTitle className="text-center">CASE {this.props.message.name}</CardTitle>
+          <CardTitle className="text-center">VOX LOG ID: {this.props.message.caseNumber}</CardTitle>
+          <CardTitle className="text-center">SENDER: {this.props.message.senderName}</CardTitle>
+
           <Row>
 
             <Form onSubmit={ this.toggle }>
             <Button type="submit" className="picButton" value={ this.props.message.avatar } onClick={ e => this.setState({avatar: this.props.message.avatar, picToggle: true })}>
-            <CardImg src={process.env.PUBLIC_URL + this.props.message.avatar} style={{height:'10em', width:"10em", marginBottom:"2em", marginLeft:"1em"}}
+            <CardImg src={process.env.PUBLIC_URL + this.props.message.avatar} style={{height:'15em', width:"10em", marginBottom:"2em", marginLeft:"1em"}}
             />
           </Button>
         </Form>
             <CardBody className="text-center col-md-10" style={{fontSize:"20pt"}}>
-            <CardText style={{padding:"0"}}>{this.props.message.content}</CardText>
+            <CardText className="admin-content" style={{padding:"0"}}>{this.props.message.content}</CardText>
 
             {renderIf(localStorage.admin === 'true',
             <div>
@@ -103,7 +105,7 @@ class VoxIndividual extends Component {
                             name="text"
                             id="text-field"
                             value={ this.state.content }
-                            onChange={e => this.setState({ content: e.target.value, id: this.props.message.id, name: this.props.message.name })}
+                            onChange={e => this.setState({ content: e.target.value, id: this.props.message.id, caseNumber: this.props.message.caseNumber })}
 
                           />
                           <Col>

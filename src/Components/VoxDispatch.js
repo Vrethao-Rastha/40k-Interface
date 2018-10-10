@@ -57,7 +57,7 @@ class VoxDispatch extends Component {
 
         {logs}
 
-
+      <div className="spacer-div"></div>
       </div>
     );
   }

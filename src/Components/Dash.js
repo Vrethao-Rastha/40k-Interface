@@ -20,7 +20,7 @@ import {
   import { Link } from 'react-router-dom'
   import renderIf from './Util'
   import ParticleEffectButton from 'react-particle-effect-button'
-  import { fetchCaseReport, fetchNameReport, fetchLocationReport } from '../Redux/Actions/FieldReportActions'
+  import { fetchCaseReport, fetchNameReport, fetchLocationReport, clearCaseReport, clearNameReport, clearLocationReport } from '../Redux/Actions/FieldReportActions'
 
 class Dash extends Component {
 
@@ -33,6 +33,20 @@ class Dash extends Component {
     case: '',
     hidden: false,
     animating: false
+  }
+
+  componentDidMount() {
+    console.log('test')
+    if(this.props.name_search_result.length > 0){
+      console.log('test')
+      this.props.clearNameReport(this.state.name, this.props.history)
+    }else if(this.props.location_search_result.length > 0){
+      console.log('test')
+      this.props.fetchLocationReport(this.state.case, this.props.history)
+    }else if(this.props.case_search_result.length > 0){
+      console.log('test')
+      this.props.fetchCaseReport(this.state.case, this.props.history)
+    }
   }
 
   toggleCase = () => {
@@ -95,6 +109,8 @@ class Dash extends Component {
       hidden,
       animating
     } = this.state
+
+    console.log('props=>', this.props, 'state=>', this.state)
 
     if(this.state.caseSearch === false && this.state.nameSearch === false && this.state.locationSearch === false){
       return (
@@ -393,7 +409,16 @@ const mapDispatchToProps = dispatch =>
   fetchCaseReport,
   fetchNameReport,
   fetchLocationReport,
-  userLogout
+  userLogout,
+  clearCaseReport,
+  clearNameReport,
+  clearLocationReport
 }, dispatch)
 
-export default withRouter(connect(null, mapDispatchToProps)(Dash));
+const mapStateToProps = state => ({
+  case_search_result: state.case_search_result,
+  name_search_result: state.name_search_result,
+  location_search_result: state.location_search_result
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dash));

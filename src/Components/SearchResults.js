@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Card,
-         CardTitle,
-       } from 'reactstrap';
+import { Card, CardTitle } from 'reactstrap';
 import DashTopper from './DashTopper'
 import Files from './Files'
+import renderIf from './Util'
 
 
 class SearcResults extends Component {
@@ -15,6 +14,7 @@ class SearcResults extends Component {
 
     if(caseResults.length === 0 && locationResults.length === 0 && nameResults.length === 0) {
 
+      console.log('the props============>', this.props)
 
       return(
         <div>

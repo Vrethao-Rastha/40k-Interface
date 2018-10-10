@@ -18,7 +18,7 @@ export const CASE_QUERRY_PENDING = 'CASE_QUERRY_PENDING'
 
 export const fetchFieldReports = () => {
     return dispatch => {
-      axios.get('http://localhost:8000/field_reports/')
+      axios.get('https://young-tundra-99453.herokuapp.com/field_reports/')
       .then(res => dispatch({
         type: FETCH_FIELD_REPORTS_SUCCESS,
         payload: res.data
@@ -32,7 +32,7 @@ export const fetchFieldReports = () => {
 
   export const fetchUser = () => {
       return dispatch => {
-        axios.get('http://localhost:8000/users/')
+        axios.get('https://young-tundra-99453.herokuapp.com/users/')
         .then(res => dispatch({
           type: FETCH_USER_SUCCESS,
           payload: res.data
@@ -47,7 +47,7 @@ export const fetchFieldReports = () => {
 export const fetchCaseReport = (case_number, history) => {
   return async dispatch => {
     console.log('still working', case_number)
-    axios.post(`http://localhost:8000/file_search/`, {case_number})
+    axios.post(`https://young-tundra-99453.herokuapp.com/file_search/`, {case_number})
     .then(res=> dispatch({
       type: FETCH_CASE_REPORT_SUCCESS,
       payload: res.data
@@ -60,16 +60,49 @@ export const fetchCaseReport = (case_number, history) => {
   }
 }
 
+export const clearCaseReport = (case_number, history) => {
+  return async dispatch => {
+    console.log('still working', case_number)
+    axios.post(`https://young-tundra-99453.herokuapp.com/file_search/`, {case_number})
+    .then(res=> dispatch({
+      type: FETCH_CASE_REPORT_SUCCESS,
+      payload: res.data
+    }))
+    history.push(`/Dash`)
+    // .catch(err => dispatch({
+    //   type: FETCH_CASE_REPORT_FAILED,
+    //   payload: err
+    // }))
+  }
+}
+
 export const fetchNameReport = (name, history) => {
   console.log('working', name, history)
   return dispatch => {
     console.log('still working', name)
-    axios.post(`http://localhost:8000/name_search/`, {name})
+    axios.post(`https://young-tundra-99453.herokuapp.com/name_search/`, {name})
     .then(res=> dispatch({
       type: FETCH_NAME_REPORT_SUCCESS,
       payload: res.data
     }))
     history.push(`/Search_Results`)
+    // .catch(err => dispatch({
+    //   type: FETCH_NAME_REPORT_FAILED,
+    //   payload: err
+    // }))
+  }
+}
+
+export const clearNameReport = (name, history) => {
+  console.log('working', name, history)
+  return dispatch => {
+    console.log('still working', name)
+    axios.post(`https://young-tundra-99453.herokuapp.com/name_search/`, {name})
+    .then(res=> dispatch({
+      type: FETCH_NAME_REPORT_SUCCESS,
+      payload: res.data
+    }))
+    history.push(`/Dash`)
     // .catch(err => dispatch({
     //   type: FETCH_NAME_REPORT_FAILED,
     //   payload: err
@@ -83,7 +116,7 @@ export const fetchNameReport = (name, history) => {
 //       try{
 //         dispatch({type: CASE_QUERRY_PENDING})
 //       console.log('im in the dispatch!')
-//       let res = axios.post(`http://localhost:8000/name_search/`, {name})
+//       let res = axios.post(`https://young-tundra-99453.herokuapp.com/name_search/`, {name})
 //       let userObj = await res.json()
 //       dispatch({
 //         type: FETCH_NAME_REPORT_SUCCESS,
@@ -103,12 +136,29 @@ export const fetchLocationReport = (location, history) => {
   console.log('working', location)
   return dispatch => {
     console.log('still working', location)
-    axios.post(`http://localhost:8000/location_search/`, {location})
+    axios.post(`https://young-tundra-99453.herokuapp.com/location_search/`, {location})
     .then(res=> dispatch({
       type: FETCH_LOCATION_REPORT_SUCCESS,
       payload: res.data
     }))
     history.push(`/Search_Results`)
+    // .catch(err => dispatch({
+    //   type: FETCH_LOCATION_REPORT_FAILED,
+    //   payload: err
+    // }))
+  }
+}
+
+export const clearLocationReport = (location, history) => {
+  console.log('working', location)
+  return dispatch => {
+    console.log('still working', location)
+    axios.post(`https://young-tundra-99453.herokuapp.com/location_search/`, {location})
+    .then(res=> dispatch({
+      type: FETCH_LOCATION_REPORT_SUCCESS,
+      payload: res.data
+    }))
+    history.push(`/Dash`)
     // .catch(err => dispatch({
     //   type: FETCH_LOCATION_REPORT_FAILED,
     //   payload: err

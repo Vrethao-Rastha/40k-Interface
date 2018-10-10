@@ -181,6 +181,14 @@ input[type=text] {
   font-size: 20pt;
   font-style: oblique;
 }
+.admin-content {
+  white-space: pre-wrap;
+  text-align: left;
+  font-family: 'MedievalSharp', cursive;
+}
+.spacer-div {
+  margin-top: 100vh;
+}
 .fail {
   background-image: url('../src/images/0a5c817a81cf1ae99dab2b936c1ca023.jpg');
   min-height: 100%;
@@ -232,4 +240,46 @@ input[type=text] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.login-button {
+  z-index: 5;
+}
+.Landing2 {
+  background-image: url('../src/images/57741-innocence_proves_nothing_wallpaper.jpg');
+  min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Landing2:after {
+  animation: grain 8s steps(10) infinite;
+  background-image: url("../src/images/paper_1.png");
+  content: "";
+  height: 275%;
+  left: -50%;
+  opacity: 0.4;
+  position: fixed;
+  top: -100%;
+  width: 300%;
+}
+
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-5%, -10%) }
+  20% { transform:translate(-15%, 5%) }
+  30% { transform:translate(7%, -25%) }
+  40% { transform:translate(-5%, 25%) }
+  50% { transform:translate(-15%, 10%) }
+  60% { transform:translate(15%, 0%) }
+  70% { transform:translate(0%, 15%) }
+  80% { transform:translate(3%, 35%) }
+  90% { transform:translate(-10%, 10%) }
 }

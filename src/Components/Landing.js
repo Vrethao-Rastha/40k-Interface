@@ -33,11 +33,11 @@ class Landing extends Component {
   }
   else if(this.state.view === 1){
       return (
-        <div className="Landing">
+        <div className="Landing2">
           <Navbar className="Navbar">
             <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition</NavbarBrand>
           </Navbar>
-          <Link className="btn btn-primary col-md-2 offset-md-5" to="/Login" style={{ marginTop:"5em", backgroundColor:"#850909", color:"black", fontFamily: 'MedievalSharp'}}>Enter</Link>
+          <Link className="btn btn-primary col-md-2 offset-md-5 login-button" to="/Login" style={{ marginTop:"5em", backgroundColor:"#850909", color:"black", fontFamily: 'MedievalSharp'}}>Enter</Link>
 
 
 

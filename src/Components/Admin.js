@@ -20,12 +20,14 @@ class Admin extends Component {
 
   state ={
     modal: false,
+    senderName: '',
+    addSenderName: '',
     content: '',
     addContent: '',
     avatar: '',
     addAvatar: '',
-    name: '',
-    addName: '',
+    caseNumber: '',
+    addCaseNumber: '',
     id: '',
     First_Name: '',
     Last_Name: '',
@@ -36,11 +38,11 @@ class Admin extends Component {
   }
 
   handlePost = e => {
-    this.props.addVoxLog(this.state.addContent, this.state.addAvatar, this.state.addName)
+    this.props.addVoxLog(this.state.addContent, this.state.addSenderName, this.state.addAvatar, this.state.addCaseNumber)
   }
 
   handleEdit = e => {
-    this.props.updateVoxLog(this.state.content, this.state.name, this.state.id)
+    this.props.updateVoxLog(this.state.content, this.state.senderName, this.state.caseNumber, this.state.id)
   }
 
   addCase = e => {
@@ -56,15 +58,13 @@ class Admin extends Component {
 
 
           <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
-</NavbarBrand>
-            <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+          </NavbarBrand>
+
+          <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
             <Link className="NavbarButtons" style={{fontSize:"15pt"}} to="/Dash">Back</Link>
 
-          <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
+            <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
 
-          <Nav navbar>
-
-          </Nav>
         </Navbar>
 
           {renderIf(localStorage.admin === 'true',
@@ -77,20 +77,20 @@ class Admin extends Component {
                           <CardTitle>New Vox Dispatch</CardTitle>
                             <Form onSubmit={ this.handlePost }>
 
-
-                                Case Number
+                                Sender Name
                                 <input
                                   style={{marginBottom:"1em"}}
                                   type="text"
                                   name="addVox"
                                   id="text-field"
-                                  value={ this.state.addName }
-                                  onChange={e => this.setState({ addName: e.target.value })}
+                                  value={ this.state.addSenderName }
+                                  onChange={e => this.setState({ addSenderName: e.target.value })}
 
                                 />
 
                                 <br/>
-                                Avatar
+                         
+                                Case Number
                                 <input
                                   style={{marginBottom:"1em"}}
                                   type="text"
@@ -100,6 +100,21 @@ class Admin extends Component {
                                   onChange={e => this.setState({ addAvatar: e.target.value })}
 
                                 />
+                                <br/>
+
+                                Avatar
+                                <input
+                                  style={{marginBottom:"1em"}}
+                                  type="text"
+                                  name="addVox"
+                                  id="text-field"
+                                  value={ this.state.addCaseNumber }
+                                  onChange={e => this.setState({ addCaseNumber: e.target.value })}
+
+                                />
+
+                                <br/>
+                                                             
                                 <ul>
                                   <li>/chess.jpg</li>
                                   <li>/Drog1.jpg</li>
@@ -116,7 +131,8 @@ class Admin extends Component {
                                 <br/>
 
                                 Content
-                                <textarea rows="4" cols="50"
+                                <pre>
+                                <textarea className="admin-content" rows="4" cols="50"
                                   type="text"
                                   name="addVox"
                                   id="text-field"
@@ -124,7 +140,7 @@ class Admin extends Component {
                                   onChange={e => this.setState({ addContent: e.target.value })}
 
                                 />
-
+                                </pre>
 
                           <Button className="pull-right" style={{marginLeft:"2em"}} onClick={ this.handlePost }>
                             Post

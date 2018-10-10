@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -12,8 +12,8 @@ import ParticleEffectButton from 'react-particle-effect-button'
 import { fetchCaseReport, fetchNameReport, fetchLocationReport } from '../Redux/Actions/FieldReportActions'
 
 
-const DashTopper = () => {
-
+class DashTopper extends Component {
+  render() {
   return(
   <div>
     <Col>
@@ -36,7 +36,8 @@ const DashTopper = () => {
 
     </Col>
   </div>
-  )
+   );
+  }
 };
 
 const mapDispatchToProps = dispatch =>
