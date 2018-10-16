@@ -23,12 +23,12 @@ class App extends Component {
 
           <Route exact path="/" component={ Landing } />
 
-          <Route exact path="/Login" component={ chechAuth(Login) } />
-          <Route exact path="/LoginFail" component={ chechAuth(LoginFail) } />
-          <Route path="/Dash" component={ chechAuth(Dash) } />
-          <Route path="/Vox_Dispatch" component={ chechAuth(VoxDispatch) } />
-          <Route path="/Search_Results" component={ chechAuth(SearchResults) } />
-          <Route path="/Admin" component={ chechAuth(Admin) } />
+          <Route exact path="/Login" component={ Login } />
+          <Route exact path="/LoginFail" component={ CheckAuth(LoginFail) } />
+          <Route path="/Dash" component={ CheckAuth(Dash) } />
+          <Route path="/Vox_Dispatch" component={ CheckAuth(VoxDispatch) } />
+          <Route path="/Search_Results" component={ CheckAuth(SearchResults) } />
+          <Route path="/Admin" component={ CheckAuth(Admin) } />
         </Switch>
       </Router>
 
