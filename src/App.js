@@ -25,10 +25,10 @@ class App extends Component {
 
           <Route exact path="/Login" component={ Login } />
           <Route exact path="/LoginFail" component={ LoginFail } />
-          <Route path="/Dash" component={ CheckAuth(Dash) } />
-          <Route path="/Vox_Dispatch" component={ CheckAuth(VoxDispatch) } />
-          <Route path="/Search_Results" component={ CheckAuth(SearchResults) } />
-          <Route path="/Admin" component={ CheckAuth(Admin) } />
+          <Route path="/Dash" component={ Dash } />
+          <Route path="/Vox_Dispatch" component={ VoxDispatch } />
+          <Route path="/Search_Results" component={ SearchResults } />
+          <Route path="/Admin" component={ Admin } />
         </Switch>
       </Router>
 
