@@ -24,7 +24,7 @@ class App extends Component {
           <Route exact path="/" component={ Landing } />
 
           <Route exact path="/Login" component={ Login } />
-          <Route exact path="/LoginFail" component={ CheckAuth(LoginFail) } />
+          <Route exact path="/LoginFail" component={ LoginFail } />
           <Route path="/Dash" component={ CheckAuth(Dash) } />
           <Route path="/Vox_Dispatch" component={ CheckAuth(VoxDispatch) } />
           <Route path="/Search_Results" component={ CheckAuth(SearchResults) } />
