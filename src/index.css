@@ -223,7 +223,7 @@ input[type=text] {
   left: 0;
   z-index: -1;
   background-attachment: fixed;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
 }
