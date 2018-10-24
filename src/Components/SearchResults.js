@@ -11,58 +11,21 @@ class SearcResults extends Component {
     let nameResults = this.props.name_search_result.map(file => <Files key={ file.id} file={ file } />)
     let locationResults = this.props.location_search_result.map(file => <Files key={ file.id} file={ file } />)
 
-    if(caseResults.length === 0 && locationResults.length === 0 && nameResults.length === 0) {
-
       return(
         <div>
           <div className="search-results"></div>
 
           <DashTopper />
-
-          <Card className="col-md-6 offset-md-3 card-background" style={{height:"18em", marginTop:"5em"}}>
+          
+          {/* Ternary to display data from one of the selected searchs */}
+          { (caseResults.length > 0) ? caseResults : (locationResults.length > 0) ? locationResults : (nameResults.length > 0) ? nameResults : <Card className="col-md-6 offset-md-3 card-background" style={{height:"18em", marginTop:"5em"}}>
             <CardTitle style={{marginTop:"2em"}}>No Results Found</CardTitle>
-          </Card>
+          </Card> }
+
+          
         </div>
       );
     }
-
-    else if(caseResults.length === 0 && locationResults.length === 0){
-
-      return (
-        <div>
-          <div className="search-results"></div>
-
-          <DashTopper />
-
-            { nameResults }
-
-        </div>
-      );
-    }else if(nameResults.length === 0 && locationResults.length === 0){
-
-      return (
-        <div>
-        <div className="search-results"></div>
-
-        <DashTopper />
-          { caseResults }
-
-        </div>
-      );
-    }else if(caseResults.length === 0 && nameResults.length === 0){
-
-      return (
-        <div>
-          <div className="search-results"></div>
-
-          <DashTopper />
-
-            { locationResults }
-
-        </div>
-      );
-    }
-  }
 }
 
 const mapStateToProps = state => ({

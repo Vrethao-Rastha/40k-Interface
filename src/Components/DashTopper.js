@@ -8,7 +8,6 @@ import {
   NavbarBrand,
   Nav
 } from 'reactstrap'
-import ParticleEffectButton from 'react-particle-effect-button'
 import { fetchCaseReport, fetchNameReport, fetchLocationReport } from '../Redux/Actions/FieldReportActions'
 
 
@@ -20,7 +19,7 @@ class DashTopper extends Component {
       <Navbar className="Navbar">
 
 
-        <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition
+        <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition
         </NavbarBrand>
           <NavbarBrand className="text-center" style={{marginLeft:"20em"}}> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
 

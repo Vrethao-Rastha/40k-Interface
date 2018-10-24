@@ -59,7 +59,7 @@ class Login extends Component {
         )}
 
           <Navbar className="Navbar">
-            <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} />His Majesty's Holy Inquisition</NavbarBrand>
+            <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition</NavbarBrand>
           </Navbar>
 
 
@@ -118,7 +118,7 @@ class Login extends Component {
             {...buttonOptions}
              >
 
-             <Button className="NavbarButtons" style={{marginLeft:"10em"}} onClick={this.handleSubmit}
+             <Button className="NavbarButtons" 
                 style={{
                 background: '#850909',
                 color: '#fff',
