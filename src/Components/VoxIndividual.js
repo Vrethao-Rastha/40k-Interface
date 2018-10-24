@@ -24,6 +24,7 @@ class VoxIndividual extends Component {
   }
 
   handleEdit = e => {
+    e.preventDefault()
     this.props.updateVoxLog(this.state.content, this.state.caseNumber, this.state.id)
   }
 
@@ -41,6 +42,7 @@ class VoxIndividual extends Component {
 }
 
   render(){
+    console.log(this.state)
     if(this.props.message){
       return(
         <div>

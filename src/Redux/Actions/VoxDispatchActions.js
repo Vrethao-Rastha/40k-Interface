@@ -30,10 +30,10 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
   }
 }
 
-  export const updateVoxLog = (content, caseNumber, senderName, id) => {
+  export const updateVoxLog = (content, caseNumber, id) => {
     return dispatch => {
-      console.log('bbbb')
-      axios.put(`https://young-tundra-99453.herokuapp.com/update_vox_dispatch/`, { content, caseNumber, senderName , id })
+      console.log(content, caseNumber, id)
+      axios.put(`https://young-tundra-99453.herokuapp.com/vox_dispatch/`, { content, caseNumber, id })
       .then(res => dispatch({
         type: UPDATE_VOX_DISPATCH_SUCCESS,
         payload: res.data
