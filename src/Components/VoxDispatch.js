@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import VoxIndividual from './VoxIndividual'
-import { addVoxLog } from '../Redux/Actions/VoxDispatchActions'
+import { addVoxLog, fetchVoxDispatch } from '../Redux/Actions/VoxDispatchActions'
 import {
   Navbar,
   NavbarBrand,
@@ -21,6 +21,10 @@ class VoxDispatch extends Component {
 
   handlePost = e => {
     this.props.addVoxLog(this.state.content, this.state.name)
+  }
+
+  componentDidMount() {
+    this.props.fetchVoxDispatch()
   }
 
   render() {
@@ -49,7 +53,8 @@ class VoxDispatch extends Component {
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-    addVoxLog
+    addVoxLog,
+    fetchVoxDispatch
   }, dispatch)
 
 const mapStateToProps = state => ({

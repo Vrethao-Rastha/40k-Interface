@@ -15,6 +15,10 @@ export const DELETE_VOX_DISPATCH_FAILED = 'DELETE_VOX_DISPATCH_FAILED'
 export const ADD_CASE_FILE_SUCCESS = 'ADD_CASE_FILE_SUCCESS '
 export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
 
+export const DELETE_CASE_FILE_SUCCESS = 'DELETE_CASE_FILE_SUCCESS'
+export const DELETE_CASE_FILE_FAILED = 'DELETE_CASE_FILE_FAILED'
+
+
 
   export const fetchVoxDispatch = () => {
     return dispatch => {
@@ -84,4 +88,17 @@ export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
         payload: err
       }))
     }
+  }
+    export const deleteCaseFile = (File_Number) => {
+      return dispatch => {
+        axios.post(`https://young-tundra-99453.herokuapp.com/delete_case_file/`, { File_Number })
+        .then(res => dispatch ({
+          type: DELETE_CASE_FILE_SUCCESS,
+          payload: res.data
+        }))
+        .catch(err => dispatch({
+          type: DELETE_CASE_FILE_FAILED,
+          payload: err
+        }))
+      }
   }

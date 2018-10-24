@@ -24,12 +24,6 @@ class LocationQuerry extends Component {
         animating: false
       }
     
-    //   componentDidMount() {
-    //     if(this.props.location_search_result.length > 0){
-    //         this.props.fetchLocationReport(this.state.case, this.props.history)
-    //       }
-    //   }
-    
       submitLocationQuerry = (e) => {
         e.preventDefault()
         if (this.state.animating) return
@@ -47,7 +41,7 @@ class LocationQuerry extends Component {
           } = this.state
 
         return ( 
-            <div>
+          <div className="Search">
                 
 
 <Card className="col-md-6 offset-md-3 navDropdown">

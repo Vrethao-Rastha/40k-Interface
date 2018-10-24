@@ -7,7 +7,7 @@ import { UPDATE_VOX_DISPATCH_SUCCESS,
   export default (state = initialState, action) => {
     switch(action.type) {
         case UPDATE_VOX_DISPATCH_SUCCESS:
-          return [...action.payload]
+          return action.payload
         case UPDATE_VOX_DISPATCH_FAILED:
           return action.payload
       default:

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import VoxIndividual from './VoxIndividual'
-import { addVoxLog, updateVoxLog, addCaseFile } from '../Redux/Actions/VoxDispatchActions'
+import { addVoxLog, addCaseFile, fetchVoxDispatch } from '../Redux/Actions/VoxDispatchActions'
 import { Card,
   Button, Col, CardTitle, Navbar,
   NavbarBrand,
@@ -37,14 +37,13 @@ class Admin extends Component {
     this.props.addVoxLog(this.state.addContent, this.state.addSenderName, this.state.addAvatar, this.state.addCaseNumber)
   }
 
-  handleEdit = e => {
-    e.preventDefault()
-    this.props.updateVoxLog(this.state.content, this.state.senderName, this.state.caseNumber, this.state.id)
-  }
-
   addCase = e => {
     e.preventDefault()
     this.props.addCaseFile(this.state.First_Name, this.state.Last_Name, this.state.Address, this.state.City, this.state.Bio, this.state.File_Number)
+  }
+
+  componentDidMount() {
+    this.props.fetchVoxDispatch()
   }
 
   render() {
@@ -58,7 +57,7 @@ class Admin extends Component {
           <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition
           </NavbarBrand>
 
-          <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
+          { localStorage.rank ? <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand> : null }
             <Link className="NavbarButtons" style={{fontSize:"15pt"}} to="/Dash">Back</Link>
 
             <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
@@ -249,8 +248,8 @@ class Admin extends Component {
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
     addVoxLog,
-    updateVoxLog,
     addCaseFile,
+    fetchVoxDispatch
   },dispatch)
 
   const mapStateToProps = state => ({

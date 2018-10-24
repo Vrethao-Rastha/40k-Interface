@@ -47,7 +47,7 @@ class NameQuerry extends Component {
           } = this.state
           
         return ( 
-            <div>
+          <div className="Search">
                 <Card className="col-md-6 offset-md-3 navDropdown">
 
 <CardBody className="navDropdown">

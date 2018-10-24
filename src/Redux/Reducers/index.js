@@ -5,7 +5,6 @@ import VoxDispatchReducer from './VoxDispatchReducer'
 import CaseFileReducer from './CaseFileReducer'
 import NameSearchReducer from './NameSearchReducer'
 import LocationSearchReducer from './LocationSearchReducer'
-
 import authReducer from './authReducer'
 
 

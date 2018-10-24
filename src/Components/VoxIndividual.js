@@ -24,7 +24,7 @@ class VoxIndividual extends Component {
   }
 
   handleEdit = e => {
-    e.preventDefault()
+    // e.preventDefault()
     this.props.updateVoxLog(this.state.content, this.state.caseNumber, this.state.id)
   }
 
