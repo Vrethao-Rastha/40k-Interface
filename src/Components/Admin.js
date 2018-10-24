@@ -33,10 +33,12 @@ class Admin extends Component {
   }
 
   handlePost = e => {
+    e.preventDefault()
     this.props.addVoxLog(this.state.addContent, this.state.addSenderName, this.state.addAvatar, this.state.addCaseNumber)
   }
 
   handleEdit = e => {
+    e.preventDefault()
     this.props.updateVoxLog(this.state.content, this.state.senderName, this.state.caseNumber, this.state.id)
   }
 
