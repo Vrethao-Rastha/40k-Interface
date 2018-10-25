@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { updateVoxLog, deleteVoxLog } from '../Redux/Actions/VoxDispatchActions'
-import { Card, CardImg, CardText, CardBody,
+import { Card, CardImg, CardText, CardBody, CardFooter,
   CardTitle, Button, Col, Row,
   Modal,
   ModalBody,
@@ -20,7 +20,35 @@ class VoxIndividual extends Component {
     avatar: '',
     caseNumber: '',
     id: '',
-    picToggle: false
+    picToggle: false,
+    quotes: [{
+      saying:  "Question: What has the Emperor ever done for me? Answer: What have you ever done for the Emperor?   \n-Imperial Guard Training Cant"
+      },
+    {
+      saying: "There is only the Emperor, and he is our Shield and Protector.   \n-Second Book of Chantings"
+      },
+    {
+    saying: "There can be no bystanders in the battle for survival. Anyone who will not fight by your side is an enemy you must crush.   \n-Lord Solar Macharius",
+    sayer: ""
+     },
+    {
+      saying: "One cannot consider the fate of a single man, nor ten, nor a thousand. Billions will live or die by our actions here, and we have not the luxury to count the cost.   \n-Inquisitor Kryptman"
+    },
+    {
+      saying: "No world shall be beyond my rule; no enemy shall be beyond my wrath.   \n-The Emperor of Mankind"
+    },
+    {
+      saying:"How can a man be happy if he cannot serve his lord with his whole heart?   \n-Litany of the Adeptus"
+    },
+    {
+      saying:"A mind without purpose will walk in dark places.   \n-Inquisitor Gideon Ravenor"
+    },
+    {
+      saying:"Victory? What use is victory? Let me have a battle of annihilation.   \n-Fleet Commissar Drussos"
+    },
+    {
+      saying:"You do know that I am doing this for your own good, my friend. The daemons that are within you must be exorcised, so you can once more join the Emperor's fold.   \n-High Lord Goge Vandire"
+    }]
   }
 
   handleEdit = e => {
@@ -42,39 +70,59 @@ class VoxIndividual extends Component {
 }
 
   render(){
-    console.log(this.state)
-    if(this.props.message){
+    console.log(this.state.quotes[0])
+    const { message } = this.props
+
+    if(message){
       return(
-        <div>
+        <div className="container-fluid">
 
         <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-md-10 offset-md-1">
-          <CardTitle className="text-center">VOX LOG ID: {this.props.message.caseNumber}</CardTitle>
-          <CardTitle className="text-center">SENDER: {this.props.message.senderName}</CardTitle>
-
+          <CardTitle className="text-center">VOX LOG ID: { message.caseNumber }</CardTitle>
+          <CardTitle className="text-center">SENDER: { message.senderName }</CardTitle>
+            <hr/>
           <Row>
 
+            
+            <CardBody className="d-flex flex-column" style={{fontSize:"20pt"}}>
+            <div className="row">
             <Form onSubmit={ this.toggle }>
-              <Button type="submit" className="picButton" value={ this.props.message.avatar } onClick={ e => this.setState({avatar: this.props.message.avatar, picToggle: true })}>
-          
-               <CardImg src={process.env.PUBLIC_URL + this.props.message.avatar} style={{height:'15em', width:"10em", marginBottom:"2em", marginLeft:"1em"}}
-              />
-             </Button>
-        </Form>
-            <CardBody style={{fontSize:"20pt"}}>
-            <CardText className="admin-content" style={{padding:"0"}}>{this.props.message.content}</CardText>
+              <Button type="submit" className="picButton" value={ message.avatar } onClick={ e => this.setState({avatar: message.avatar, picToggle: true })}>
 
-            {renderIf(localStorage.admin === 'true',
-            <div>
-              <Button className="pull-right" style={{marginLeft:"1em"}} onClick={ this.toggle }>
-                            Edit
+              <CardImg className="profile-pic" src={process.env.PUBLIC_URL + message.avatar}
+              />
+               
+             </Button>
+             </Form>
+              <CardText className="admin-content mt-auto mb-auto" style={{padding:"0"}}>{ message.content }
+            </CardText></div>
+
+             <div className="mt-auto">
+             
+              <CardFooter className="col-md-12 quotes">
+              <div className="row">
+                <img src={ process.env.PUBLIC_URL + "images.png" } style={{height:"5em", marginRight:"1em"}} />
+              
+              <p className="quotes col-md-10 offset-md-2 mt-auto">{this.state.quotes[Math.floor((Math.random() * 8) + 1)].saying}</p>
+              </div>
+              {(localStorage.admin === 'true') ?
+           
+           <div>
+           <Button className="message-button pull-right" style={{marginLeft:"1em"}} onClick={ this.toggle }>
+                         Edit
+           </Button>
+           
+            <Form onSubmit={ this.handleDelete }>
+              <Button className="message-button pull-right" type="submit" value={message.id} onClick={ e => this.setState({ id: e.target.value }) } style={{marginLeft:"2em"}}>
+                Delete
               </Button>
-               <Form onSubmit={ this.handleDelete }>
-                 <Button className="pull-right" type="submit" value={this.props.message.id} onClick={ e => this.setState({id: e.target.value}) } style={{marginLeft:"2em"}}>
-                   Delete
-                 </Button>
-               </Form>
-             </div>
-                )}
+            </Form>
+           </div>
+           : null }
+              </CardFooter>
+            
+
+              </div>
 
 
 
@@ -83,7 +131,7 @@ class VoxIndividual extends Component {
     </Card>
 
 
-      <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+      <Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
         {renderIf(this.state.picToggle === true,
           <div>
             <CardImg src={ process.env.PUBLIC_URL + this.state.avatar} />
@@ -103,7 +151,7 @@ class VoxIndividual extends Component {
                             name="text"
                             id="text-field"
                             value={ this.state.content }
-                            onChange={e => this.setState({ content: e.target.value, id: this.props.message.id, caseNumber: this.props.message.caseNumber })}
+                            onChange={e => this.setState({ content: e.target.value, id: message.id, caseNumber: message.caseNumber })}
 
                           />
                           <Col>

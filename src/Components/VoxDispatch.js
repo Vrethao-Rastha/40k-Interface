@@ -38,8 +38,8 @@ class VoxDispatch extends Component {
 
           <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition
           </NavbarBrand>
-          <NavbarBrand className="text-center"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand>
-            <Link className="NavbarButtons" to="/Dash" style={{ fontSize:"15pt", marginRight:"1em"}}>Return</Link>
+          { localStorage.rank ? <NavbarBrand className="text-center mx-auto"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand> : null }
+            <Link className="NavbarButtons mr-3" to="/Dash" style={{ fontSize:"15pt"}}>Return</Link>
         
         </Navbar>
 

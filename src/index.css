@@ -131,9 +131,16 @@ input[type=text] {
   border: 1px solid #850909;
   border-radius: 4px;
 }
-/*.modal-backdrop {
-    opacity: 0.9 !important;
-}*/
+.profile-pic {
+  height:15em; 
+  width:10em; 
+  margin-bottom:2em;
+  margin-left:1em;
+  box-shadow: 5px 5px 4px 5px #888888;
+}
+.message-button {
+  box-shadow: 2.5px 2.5px 2px 2.5px #888888;
+}
 .navDropdown {
   color: #850909;
   background-color: black;
@@ -142,8 +149,9 @@ input[type=text] {
 }
 .navDropdown:hover {
   border: none;
+  color:#850909;
   background-color: black;
-
+  border-radius: 5%;
 }
 .search-results {
   background-image: url('../src/images/inquisition-warhammer-40k-31853-1920x1080.jpg');
@@ -181,10 +189,21 @@ input[type=text] {
   font-size: 20pt;
   font-style: oblique;
 }
+.quotes {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  text-align: left;
+  margin-left: 1em;
+  font-family: 'Cinzel', cursive;
+  font-size: 15pt;
+}
 .admin-content {
   white-space: pre-wrap;
+  overflow-wrap: break-word;
   text-align: left;
-  font-family: 'MedievalSharp', cursive;
+  margin-left: 1em;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 20pt;
 }
 .spacer-div {
   margin-top: 100vh;
