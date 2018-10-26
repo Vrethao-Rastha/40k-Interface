@@ -29,7 +29,6 @@ class VoxIndividual extends Component {
       },
     {
     saying: "There can be no bystanders in the battle for survival. Anyone who will not fight by your side is an enemy you must crush.   \n-Lord Solar Macharius",
-    sayer: ""
      },
     {
       saying: "One cannot consider the fate of a single man, nor ten, nor a thousand. Billions will live or die by our actions here, and we have not the luxury to count the cost.   \n-Inquisitor Kryptman"
@@ -48,7 +47,28 @@ class VoxIndividual extends Component {
     },
     {
       saying:"You do know that I am doing this for your own good, my friend. The daemons that are within you must be exorcised, so you can once more join the Emperor's fold.   \n-High Lord Goge Vandire"
-    }]
+    },
+  {
+      saying:"Only in death does duty end. \n -Imperial Guard Motto"
+  },
+  {
+      saying:"Even a man who has nothing can still offer his life.\n -Imperial Guard Motto"
+  },
+  {
+      saying:"Your foe is well equipped, well-trained, battle-hardened. He believes his gods are on his side. Let him believe what he will. We have the tanks on ours. \n -Imperial Guard Motto"
+  },
+  {
+      saying:"Some may question your right to destroy ten billion people. Those who understand realise that you have no right to let them live! \n -Inquisitor Worslu"
+  },
+  {
+      saying:"Hatred is the emperor's greatest gift to humanity. \n -Inquisitorial Motto"
+  },
+  {
+      saying:"While the enemies of the Emperor still draw breath, there can be no peace. \n -High Marshal Helbreqt of the Black Templars"
+  },
+  {
+      saying:"In ancient times, men built wonders, laid claim to the stars and sought to better themselves for the good of all. But we are much wiser now. \n -Arch Magos Keriel"
+  }]
   }
 
   handleEdit = e => {
@@ -78,8 +98,17 @@ class VoxIndividual extends Component {
         <div className="container-fluid">
 
         <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-md-10 offset-md-1">
-          <CardTitle className="text-center">VOX LOG ID: { message.caseNumber }</CardTitle>
-          <CardTitle className="text-center">SENDER: { message.senderName }</CardTitle>
+          <div className="row mx-auto">
+
+          <img className="mr-auto" src={ process.env.PUBLIC_URL + "inq.jpg"} alt="Inqisition Logo" style={{height:"7em"}} />
+
+          <div className="d-flex flex-column ml-4 mt-4">
+          <CardTitle className="vox-header">VOX LOG ID: <span>{ message.caseNumber }</span></CardTitle>
+          <CardTitle className="vox-header">SENDER: <span>{ message.senderName }</span></CardTitle>
+          </div>
+          
+          </div>
+          
             <hr/>
           <Row>
 
@@ -94,18 +123,18 @@ class VoxIndividual extends Component {
                
              </Button>
              </Form>
-              <CardText className="admin-content mt-auto mb-auto" style={{padding:"0"}}>{ message.content }
+              <CardText className="admin-content mt-auto mb-auto">{ message.content }
             </CardText></div>
 
              <div className="mt-auto">
              
               <CardFooter className="col-md-12 quotes">
               <div className="row">
-                <img src={ process.env.PUBLIC_URL + "images.png" } style={{height:"5em", marginRight:"1em"}} />
+                <img src={ process.env.PUBLIC_URL + "images.png" } alt="Inqisition Logo" style={{height:"5em", marginRight:"1em"}} />
               
-              <p className="quotes col-md-10 offset-md-2 mt-auto">{this.state.quotes[Math.floor((Math.random() * 8) + 1)].saying}</p>
+              <p className="quotes col-md-10 offset-md-2 mt-auto">{this.state.quotes[Math.floor((Math.random() * 15) + 1)].saying}</p>
               </div>
-              {(localStorage.admin === 'true') ?
+              {(localStorage.admin.replace(/"/g,"") === '17') ?
            
            <div>
            <Button className="message-button pull-right" style={{marginLeft:"1em"}} onClick={ this.toggle }>
@@ -138,7 +167,7 @@ class VoxIndividual extends Component {
           </div>
         )}
 
-        {renderIf(localStorage.admin === 'true',
+        {renderIf(localStorage.admin.replace(/"/g,"") === '17',
                   <ModalBody>
 
                     <Col>

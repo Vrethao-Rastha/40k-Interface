@@ -57,7 +57,6 @@ class Dash extends Component {
   }
 
   render() {
-
       return (
         <div className="dash">
           <Navbar className="Navbar">
@@ -84,7 +83,7 @@ class Dash extends Component {
                   </DropdownItem>
 
                   <DropdownItem className="navDropdown">
-                    {(localStorage.admin === 'true') ? <Link className="navDropdown btn btn-primary" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em", fontSize:"15pt"}} to="/Admin">Admin</Link>
+                    {(localStorage.admin.replace(/"/g,"") === "17") ? <Link className="navDropdown btn btn-primary" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em", fontSize:"15pt"}} to="/Admin">Admin</Link>
                     : null }
                   </DropdownItem>
                 </DropdownMenu>

@@ -197,6 +197,13 @@ input[type=text] {
   font-family: 'Cinzel', cursive;
   font-size: 15pt;
 }
+.vox-header {
+  font-family: 'Cinzel Decorative Black', cursive;
+  font-size: 20pt;
+}
+.vox-header > span {
+  font-family: 'Cinzel Decorative', cursive
+}
 .admin-content {
   white-space: pre-wrap;
   overflow-wrap: break-word;

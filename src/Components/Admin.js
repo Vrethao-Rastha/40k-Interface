@@ -64,7 +64,7 @@ class Admin extends Component {
 
         </Navbar>
 
-          {renderIf(localStorage.admin === 'true',
+          {renderIf(localStorage.admin.replace(/"/g,"") === '17',
           <div className="container-fluid">
 
             <Col className="col-md-3 offset-md-3">
@@ -122,6 +122,11 @@ class Admin extends Component {
                                   <li>/Sister Of Battle.jpg</li>
                                   <li>/tarot.png</li>
                                   <li>/tattoo.png</li>
+                                  <li>/cute.jpg</li>
+                                  <li>/Inquisidora_Amanda_.jpg</li>
+                                  <li>/Inquisitor.jpg</li>
+                                  <li>/lond inq.jpg</li>
+
 
                                 </ul>
 
