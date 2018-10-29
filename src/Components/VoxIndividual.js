@@ -99,7 +99,7 @@ class VoxIndividual extends Component {
         <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-md-10 offset-md-1">
           <div className="row mx-auto">
 
-          <img className="mr-auto" src={ process.env.PUBLIC_URL + "inq.jpg"} alt="Inqisition Logo" style={{height:"7em"}} />
+          <img className="mr-auto" src={ process.env.PUBLIC_URL + "Inq.jpg"} alt="Inqisition Logo" style={{height:"7em"}} />
 
           <div className="d-flex flex-column ml-4 mt-4">
           <CardTitle className="vox-header">VOX LOG ID: <span>{ message.caseNumber }</span></CardTitle>
