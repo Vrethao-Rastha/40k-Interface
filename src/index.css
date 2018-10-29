@@ -196,6 +196,7 @@ input[type=text] {
   margin-left: 1em;
   font-family: 'Cinzel', cursive;
   font-size: 15pt;
+  text-shadow: 5px 5px 4px #888888;
 }
 .vox-header {
   font-family: 'Cinzel Decorative Black', cursive;
@@ -227,6 +228,27 @@ input[type=text] {
   z-index: -1;
   background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.admin-card {
+  font-family: 'Cinzel', cursive;
+}
+.test {
+  opacity: 0.9;
+}
+.admin-page{
+  background-image: url('../src/images/wh40k___confused_space_elf_by_sirtiefling-d6yp5m7.jpg');
+  height: 150vmax;
+  min-width: 1024px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow-y: visible;
+  background-attachment: scroll;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
 }

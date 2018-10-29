@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import VoxIndividual from './VoxIndividual'
 import { addVoxLog, addCaseFile, fetchVoxDispatch } from '../Redux/Actions/VoxDispatchActions'
-import { Card,
+import { Card, Row, Input, ListGroup, ListGroupItem,
   Button, Col, CardTitle, Navbar,
   NavbarBrand,
-  Form
+  Form, FormGroup
    } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
@@ -49,6 +49,7 @@ class Admin extends Component {
     const logs = this.props.vox.map(message => <VoxIndividual key={message.id} message={message} /> )
     return (
       <div>
+        <div className="admin-page"></div>
 
         <Navbar className="Navbar">
 
@@ -66,15 +67,15 @@ class Admin extends Component {
           {(localStorage.admin.replace(/"/g,"") === '17') ?
           <div className="container-fluid">
 
-            <Col className="col-md-3 offset-md-3">
+            <Row>
 
-
-                        <Card style={{borderRadius:"%5", marginTop:"2em" ,marginBottom:"2em"}} className="">
+              <Col className="col-md-3">
+                        <Card style={{borderRadius:"%5", marginTop:"2em" ,marginBottom:"2em" }} className="admin-card">
                           <CardTitle>New Vox Dispatch</CardTitle>
                             <Form onSubmit={ this.handlePost }>
-
+                              <FormGroup>
                                 Sender Name
-                                <input
+                                <Input
                                   style={{marginBottom:"1em"}}
                                   type="text"
                                   name="addVox"
@@ -86,8 +87,8 @@ class Admin extends Component {
 
                                 <br/>
                          
-                                Case Number
-                                <input
+                                Vox ID Number
+                                <Input
                                   style={{marginBottom:"1em"}}
                                   type="text"
                                   name="addVox"
@@ -99,7 +100,7 @@ class Admin extends Component {
                                 <br/>
 
                                 Avatar
-                                <input
+                                <Input
                                   style={{marginBottom:"1em"}}
                                   type="text"
                                   name="addVox"
@@ -111,29 +112,29 @@ class Admin extends Component {
 
                                 <br/>
                                                              
-                                <ul>
-                                  <li>/chess.jpg</li>
-                                  <li>/Drog1.jpg</li>
-                                  <li>/dude.jpg</li>
-                                  <li>/eisenhorn-01.jpg</li>
-                                  <li>/eldar.jpg</li>
-                                  <li>/juliana.jpg</li>
-                                  <li>/Sister Of Battle.jpg</li>
-                                  <li>/tarot.png</li>
-                                  <li>/tattoo.png</li>
-                                  <li>/cute.jpg</li>
-                                  <li>/Inquisidora_Amanda_.jpg</li>
-                                  <li>/Inquisitor.jpg</li>
-                                  <li>/lond inq.jpg</li>
+                                <ListGroup>
 
+                                  <ListGroupItem>/chess.jpg</ListGroupItem>
+                                  <ListGroupItem>/Drog1.jpg</ListGroupItem>
+                                  <ListGroupItem>/dude.jpg</ListGroupItem>
+                                  <ListGroupItem>/eisenhorn-01.jpg</ListGroupItem>
+                                  <ListGroupItem>/eldar.jpg</ListGroupItem>
+                                  <ListGroupItem>/juliana.jpg</ListGroupItem>
+                                  <ListGroupItem>/Sister Of Battle.jpg</ListGroupItem>
+                                  <ListGroupItem>/tarot.png</ListGroupItem>
+                                  <ListGroupItem>/tattoo.png</ListGroupItem>
+                                  <ListGroupItem>/cute.jpg</ListGroupItem>
+                                  <ListGroupItem>/Inquisidora_Amanda_.jpg</ListGroupItem>
+                                  <ListGroupItem>/Inquisitor.jpg</ListGroupItem>
+                                  <ListGroupItem>/lond inq.jpg</ListGroupItem>
 
-                                </ul>
+                                </ListGroup>
 
                                 <br/>
 
                                 Content
                                 <pre>
-                                <textarea className="admin-content" rows="4" cols="50"
+                                <textarea className="admin-content" rows="4" cols="25"
                                   type="text"
                                   name="addVox"
                                   id="text-field"
@@ -146,17 +147,20 @@ class Admin extends Component {
                           <Button className="pull-right" style={{marginLeft:"2em"}} onClick={ this.handlePost }>
                             Post
                           </Button>
+                          </FormGroup>
                         </Form>
                       </Card>
+                    </Col>
 
-                  <Card style={{borderRadius:"%5", marginTop:"2em" ,marginBottom:"2em"}} className="">
+                <Col className="col-md-3 offset-md-6">
+                  <Card style={{borderRadius:"%5", marginTop:"2em" ,marginBottom:"2em"}} className="admin-card">
 
                     <CardTitle>Add Case File</CardTitle>
                       <Form onSubmit={ this.addCase }>
 
 
                           First Name
-                          <input
+                          <Input
                             style={{marginBottom:"1em"}}
                             type="text"
                             name="text"
@@ -169,7 +173,7 @@ class Admin extends Component {
                           <br/>
 
                           Last Name
-                          <input
+                          <Input
                             style={{marginBottom:"1em"}}
                             type="text"
                             name="text"
@@ -182,7 +186,7 @@ class Admin extends Component {
                           <br/>
 
                           Address
-                          <input
+                          <Input
                             style={{marginBottom:"1em"}}
                             type="text"
                             name="text"
@@ -195,7 +199,7 @@ class Admin extends Component {
                           <br/>
 
                           City
-                          <input
+                          <Input
                             style={{marginBottom:"1em"}}
                             type="text"
                             name="text"
@@ -208,7 +212,7 @@ class Admin extends Component {
                           <br/>
 
                           Bio
-                          <textarea rows="4" cols="50"
+                          <textarea rows="4" cols="30"
                             type="text"
                             name="text"
                             id="text-field"
@@ -220,7 +224,7 @@ class Admin extends Component {
                           <br/>
 
                           File Number
-                          <input
+                          <Input
                             style={{marginBottom:"1em"}}
                             type="text"
                             name="text"
@@ -238,12 +242,12 @@ class Admin extends Component {
                     </Button>
                   </Form>
                         </Card>
-                        </Col>
+                      </Col>
+                </Row>      
                         { logs }
 
                       </div>
                       : null }
-
       </div>
     );
   }

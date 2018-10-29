@@ -18,11 +18,14 @@ class SearcResults extends Component {
           <DashTopper />
           
           {/* Ternary to display data from one of the selected searchs */}
-          { (caseResults.length > 0) ? caseResults : (locationResults.length > 0) ? locationResults : (nameResults.length > 0) ? nameResults : <Card className="col-md-6 offset-md-3 card-background" style={{height:"18em", marginTop:"5em"}}>
+          { (caseResults.length > 0) ? caseResults : 
+            (locationResults.length > 0) ? locationResults : 
+            (nameResults.length > 0) ? nameResults 
+            : <Card className="col-md-6 offset-md-3 card-background" style={{height:"18em", marginTop:"5em"}}>
             <CardTitle style={{marginTop:"2em"}}>No Results Found</CardTitle>
           </Card> }
 
-          
+          <div className="spacer-div"></div>
         </div>
       );
     }
