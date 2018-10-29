@@ -9,7 +9,6 @@ import { Card,
   Form
    } from 'reactstrap';
 import { Link } from 'react-router-dom'
-import renderIf from './Util'
 
 class Admin extends Component {
 
@@ -64,7 +63,7 @@ class Admin extends Component {
 
         </Navbar>
 
-          {renderIf(localStorage.admin.replace(/"/g,"") === '17',
+          {(localStorage.admin.replace(/"/g,"") === '17') ?
           <div className="container-fluid">
 
             <Col className="col-md-3 offset-md-3">
@@ -243,7 +242,7 @@ class Admin extends Component {
                         { logs }
 
                       </div>
-                      )}
+                      : null }
 
       </div>
     );

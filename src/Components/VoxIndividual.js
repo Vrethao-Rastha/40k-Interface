@@ -10,7 +10,6 @@ import { Card, CardImg, CardText, CardBody, CardFooter,
   Form,
   FormGroup,
    } from 'reactstrap';
-import renderIf from './Util'
 
 class VoxIndividual extends Component {
 
@@ -123,7 +122,7 @@ class VoxIndividual extends Component {
                
              </Button>
              </Form>
-              <CardText className="admin-content mt-auto mb-auto">{ message.content }
+              <CardText className="admin-content mt-auto mb-auto col-md-9">{ message.content }
             </CardText></div>
 
              <div className="mt-auto">
@@ -161,13 +160,13 @@ class VoxIndividual extends Component {
 
 
       <Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
-        {renderIf(this.state.picToggle === true,
+        {(this.state.picToggle === true) ?
           <div>
             <CardImg src={ process.env.PUBLIC_URL + this.state.avatar} />
           </div>
-        )}
+        : null }
 
-        {renderIf(localStorage.admin.replace(/"/g,"") === '17',
+        {(localStorage.admin.replace(/"/g,"") === '17') ?
                   <ModalBody>
 
                     <Col>
@@ -198,7 +197,7 @@ class VoxIndividual extends Component {
                       </Form>
                     </Col>
                   </ModalBody>
-                )}
+                : null }
                 </Modal>
 
     </div>

@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom'
 import { userLogin } from '../Redux/Actions/authActions'
 import ParticleEffectButton from 'react-particle-effect-button'
 import ReactGlitch from 'react-glitch';
-import renderIf from './Util'
 
 
 class Login extends Component {
@@ -54,16 +53,16 @@ class Login extends Component {
     } = this.state
       return (
         <div>
-          {renderIf(this.state.glitch === false,
+          {(this.state.glitch === false) ?
           <div className="Login"></div>
-        )}
+        : null }
 
           <Navbar className="Navbar">
             <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition</NavbarBrand>
           </Navbar>
 
 
-          {renderIf(this.state.glitch === true,
+          {(this.state.glitch === true) ?
           <ReactGlitch className="glitch"
 
             src={require('../images/ravenor-cross-inquisition-wallpaper.jpg')} 
@@ -76,7 +75,7 @@ class Login extends Component {
             }}
             speed={[0]} 
           />
-        )}
+        : null }
 
           <Modal isOpen={this.state.modal} toggle={this.toggle} className="CaseSearchModal">
           <ModalHeader className="CaseSearchModal"  toggle={this.toggle}>Enter Credentials</ModalHeader>
