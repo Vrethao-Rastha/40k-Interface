@@ -23,6 +23,13 @@ class LocationQuerry extends Component {
         hidden: false,
         animating: false
       }
+
+      componentDidMount() {
+        if(this.props.location_search_result.length > 0){
+            this.setState({location: ''})
+            this.props.clearLocationReport(this.state.location, this.props.history)
+          }
+      }
     
       submitLocationQuerry = (e) => {
         e.preventDefault()

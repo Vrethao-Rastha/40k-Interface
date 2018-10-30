@@ -28,6 +28,7 @@ class NameQuerry extends Component {
     
       componentDidMount() {
         if(this.props.name_search_result.length > 0){
+            this.setState({name: ''})
             this.props.clearNameReport(this.state.name, this.props.history)
           }
       }

@@ -26,6 +26,7 @@ class CaseQuerry extends Component {
     
       componentDidMount() {
         if(this.props.case_search_result.length > 0){
+          this.setState({case: ''})
           this.props.clearCaseReport(this.state.case, this.props.history)
         }
       }

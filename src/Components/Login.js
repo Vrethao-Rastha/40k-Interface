@@ -64,16 +64,16 @@ class Login extends Component {
 
           {(this.state.glitch === true) ?
           <ReactGlitch className="glitch"
-
-            src={require('../images/ravenor-cross-inquisition-wallpaper.jpg')} 
+            style={{width:862, height:1210, marginLeft:"30%"}}
+            src={require('../images/ravenor.jpg')} 
             glitching={true} 
             glitchOptions={{ 
-              seed: [45], 
+              seed: [60], 
               quality: 99, 
-              amount: 20, 
-              iterations: [35] 
+              amount: 0, 
+              iterations: [50] 
             }}
-            speed={[0]} 
+            speed={[100]} 
           />
         : null }
 

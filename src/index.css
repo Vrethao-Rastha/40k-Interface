@@ -28,8 +28,8 @@ body {
 }
 .dash {
   background-image: url('../src/images/warhammer-40k-logo-graffiti-hd-desktop-high-definition.jpg');
-  min-height: 100%;
-    min-width: 1024px;
+  background-color: black;
+    min-height: 100%;
     width: 100%;
     height: auto;
     position: fixed;
@@ -39,7 +39,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 .vox {
   background-image: url('../src/images/emperor.jpg');
@@ -101,7 +101,8 @@ body {
     background-size: cover;
 }
 .Login {
-  background-image: url('../src/images/ravenor-cross-inquisition-wallpaper.jpg');
+  background-image: url('../src/images/ravenor.jpg');
+  background-color: black;
   min-height: 100%;
   width: 100%;
   height: auto;
@@ -112,7 +113,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 .CaseSearchModal {
   font-family: 'MedievalSharp', cursive;
@@ -154,9 +155,9 @@ input[type=text] {
   border-radius: 5%;
 }
 .search-results {
+  background-color: black;
   background-image: url('../src/images/inquisition-warhammer-40k-31853-1920x1080.jpg');
   min-height: 100%;
-  min-width: 1024px;
   width: 100%;
   height: auto;
   position: fixed;
@@ -166,7 +167,7 @@ input[type=text] {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 .card-background {
   background-image: url('../src/images/inquisition_stamp_by_hikaru_119-d4u0rgc.jpg');
@@ -280,7 +281,7 @@ input[type=text] {
   background-attachment: fixed;
   background-position: bottom;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 .glitch {
   min-height: 100%;
