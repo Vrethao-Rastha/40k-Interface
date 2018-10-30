@@ -66,9 +66,9 @@ export const clearCaseReport = (case_number, history) => {
   }
 }
 
-export const fetchNameReport = (name, history) => {
-  return dispatch => {
-    axios.post(`https://young-tundra-99453.herokuapp.com/name_search/`, {name})
+export const fetchNameReport = (first_name, last_name, history) => {
+  return dispatch => {    
+    axios.post(`https://young-tundra-99453.herokuapp.com/name_search/`, {first_name, last_name})
     .then(res=> dispatch({
       type: FETCH_NAME_REPORT_SUCCESS,
       payload: res.data

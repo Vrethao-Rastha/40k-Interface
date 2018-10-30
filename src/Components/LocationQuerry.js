@@ -57,16 +57,17 @@ class LocationQuerry extends Component {
                   value={this.state.location}
                   onChange={e => this.setState({ location: e.target.value})}
                 />
+                <Label>Note: The Machine Spirit governing this archive is temperamental and only respects queries made with proper punctuation.<br/> Praise be to the Omnissiah.</Label>
 
                 <ParticleEffectButton
                   hidden={hidden}
                   color='#850909'
 
                 >
-                  <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+                  <Button style={{marginTop:"8em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
 
                 </ParticleEffectButton>
-
+                <img className="search-pic pull-right" src={ process.env.PUBLIC_URL + "WWzoaC9.jpg"} alt="Omnissiah"/>
 
         </Form>
       </CardBody>

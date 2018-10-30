@@ -71,7 +71,6 @@ class VoxIndividual extends Component {
   }
 
   handleEdit = e => {
-    // e.preventDefault()
     this.props.updateVoxLog(this.state.content, this.state.caseNumber, this.state.id)
   }
 
@@ -80,31 +79,43 @@ class VoxIndividual extends Component {
     this.props.deleteVoxLog(this.props.message.id)
   }
 
-  toggle = (e) => {
-    e.preventDefault()
+  toggle = (message) => {
   this.setState({
+    avatar: message,
+     picToggle: true, 
     modal: !this.state.modal
   });
-
 }
 
-  render(){
-    console.log(this.state.quotes[0])
-    const { message } = this.props
+toggleEdit = () => {
+  this.setState({
+    modal: !this.state.modal
+  })
+}
 
+
+  render(){
+
+    const { message } = this.props
     if(message){
+
       return(
-        <div className="container-fluid test">
+        <div className="container-fluid">
 
         <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-md-10 offset-md-1">
           <div className="row mx-auto">
 
-          <img className="mr-auto" src={ process.env.PUBLIC_URL + "Inq.jpg"} alt="Inqisition Logo" style={{height:"7em"}} />
+             <img className="mr-auto" src={ process.env.PUBLIC_URL + "Inq.jpg"} alt="Inqisition Logo" style={{height:"7em"}} />
 
-          <div className="d-flex flex-column ml-4 mt-4">
-          <CardTitle className="vox-header">VOX LOG ID: <span>{ message.caseNumber }</span></CardTitle>
-          <CardTitle className="vox-header">SENDER: <span>{ message.senderName }</span></CardTitle>
-          </div>
+           <div className="d-flex flex-column ml-4 mt-4">
+            <CardTitle className="vox-header">VOX LOG ID: 
+             <span className="vox-data">{ message.caseNumber }</span>
+            </CardTitle>
+
+             <CardTitle className="vox-header">SENDER: 
+               <span className="vox-data">{ message.senderName }</span>
+            </CardTitle>
+           </div>
           
           </div>
           
@@ -114,16 +125,18 @@ class VoxIndividual extends Component {
             
             <CardBody className="d-flex flex-column" style={{fontSize:"20pt"}}>
             <div className="row">
-            <Form onSubmit={ this.toggle }>
-              <Button type="submit" className="picButton" value={ message.avatar } onClick={ e => this.setState({avatar: message.avatar, picToggle: true })}>
 
-              <CardImg className="profile-pic" src={process.env.PUBLIC_URL + message.avatar}
+              <CardImg className="profile-pic picButton" src={process.env.PUBLIC_URL + message.avatar}
+                onClick={ () => this.toggle(message.avatar)}
               />
                
-             </Button>
-             </Form>
-              <CardText className="admin-content mt-auto mb-auto col-md-9">{ message.content }
-            </CardText></div>
+              <CardText className="admin-content mt-auto mb-auto col-md-9">
+              
+              { message.content} 
+              
+              <img className="text-img" src={ process.env.PUBLIC_URL + "Ordo_Xenos_Insignia.png"} alt="Inquisition Logo" />
+              </CardText>
+            </div>
 
              <div className="mt-auto">
              
@@ -133,10 +146,12 @@ class VoxIndividual extends Component {
               
               <p className="quotes col-md-10 offset-md-2 mt-auto">{this.state.quotes[Math.floor((Math.random() * 15) + 1)].saying}</p>
               </div>
+
+               {/* Conditional Render for Edit Functions */}
               {(localStorage.admin.replace(/"/g,"") === '17') ?
            
            <div>
-           <Button className="message-button pull-right" style={{marginLeft:"1em"}} onClick={ this.toggle }>
+           <Button className="message-button pull-right" style={{marginLeft:"1em"}} onClick={ this.toggleEdit }>
                          Edit
            </Button>
            
@@ -146,27 +161,27 @@ class VoxIndividual extends Component {
               </Button>
             </Form>
            </div>
+
            : null }
+
               </CardFooter>
-            
-
               </div>
-
-
 
             </CardBody>
           </Row>
     </Card>
 
 
+        {/* Modal with Edit form and Profile picture detail */}
       <Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
+
+        {/* Conditional render for profile picture detail */}
         {(this.state.picToggle === true) ?
           <div>
             <CardImg src={ process.env.PUBLIC_URL + this.state.avatar} />
           </div>
-        : null }
-
-        {(localStorage.admin.replace(/"/g,"") === '17') ?
+          // Conditional Render for edit box
+        : (localStorage.admin.replace(/"/g,"") === '17' && this.state.picToggle === false) ?
                   <ModalBody>
 
                     <Col>
@@ -182,12 +197,9 @@ class VoxIndividual extends Component {
                             onChange={e => this.setState({ content: e.target.value, id: message.id, caseNumber: message.caseNumber })}
 
                           />
-                          <Col>
-
-
-                          </Col>
 
                         </FormGroup>
+                        
                         <ModalFooter>
 
                           <Button type="submit" className="btn btn-secondary">Edit</Button>
@@ -205,7 +217,7 @@ class VoxIndividual extends Component {
     }else {
       return(
         <div>
-          dlfnvld
+          No Messages
         </div>
       )
     }
@@ -221,7 +233,6 @@ const mapDispatchToProps = dispatch =>
 
 const mapStateToProps = state => ({
   vox: state.vox_dispatch,
-  addVox: state.add_vox
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(VoxIndividual);

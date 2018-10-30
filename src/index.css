@@ -132,8 +132,8 @@ input[type=text] {
   border-radius: 4px;
 }
 .profile-pic {
-  height:15em; 
-  width:10em; 
+  height:12em; 
+  width:8em; 
   margin-bottom:2em;
   margin-left:1em;
   box-shadow: 5px 5px 4px 5px #888888;
@@ -198,12 +198,27 @@ input[type=text] {
   font-size: 15pt;
   text-shadow: 5px 5px 4px #888888;
 }
+.text-img {
+  opacity: 0.3;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
 .vox-header {
-  font-family: 'Cinzel Decorative Black', cursive;
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 900;
   font-size: 20pt;
 }
+.search-pic {
+  height:10em;
+}
+.vox-data {
+  margin-left: .5em;
+}
 .vox-header > span {
-  font-family: 'Cinzel Decorative', cursive
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 400;
 }
 .admin-content {
   white-space: pre-wrap;
@@ -251,14 +266,6 @@ input[type=text] {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.picButton {
-  border: none;
-  background: none;
-}
-.picButton:hover {
-  border: none;
-  background: none;
 }
 .Search {
   background-image: url('../src/images/best-warhammer-40k-wallpapers-1920x1200-WTG200613638.jpg');

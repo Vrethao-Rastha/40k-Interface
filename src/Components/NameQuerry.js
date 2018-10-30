@@ -9,6 +9,7 @@ import {
   Card,
   CardBody,
   CardTitle,
+  FormGroup
      } from 'reactstrap';
   import ParticleEffectButton from 'react-particle-effect-button'
   import { fetchCaseReport, fetchNameReport, fetchLocationReport, clearCaseReport, clearNameReport, clearLocationReport } from '../Redux/Actions/FieldReportActions'
@@ -19,7 +20,8 @@ class NameQuerry extends Component {
         caseSearch: false,
         nameSearch: false,
         locationSearch: false,
-        name: '',
+        first_name: '',
+        last_name: '',
         hidden: false,
         animating: false
       }
@@ -37,11 +39,11 @@ class NameQuerry extends Component {
           hidden: !this.state.hidden,
           animating: true
         })
-        setTimeout(() => {this.props.fetchNameReport(this.state.name, this.props.history)}, 1500)
+        setTimeout(() => {this.props.fetchNameReport(this.state.first_name, this.state.last_name, this.props.history)}, 1500)
       }
 
     render() { 
-
+      console.log(this.state.name)
         const {
             hidden
           } = this.state
@@ -54,25 +56,39 @@ class NameQuerry extends Component {
   <CardTitle>Name Query</CardTitle>
 
   <Form onSubmit={this.submitNameQuerry}>
-    <Label className="btns" for="caseNumber-field">Enter Name Querry</Label>
+    <Label className="btns" for="caseNumber-field">Enter Name Query</Label>
+        <FormGroup>
+          <Label>First Name</Label>
             <Input
               className="put"
             type="caseNumber"
             name="caseNumber"
             id="caseNumber-field"
-            value={this.state.name}
-            onChange={e => this.setState({ name: e.target.value})}
+            value={this.state.first_name}
+            onChange={e => this.setState({ first_name: e.target.value})}
           />
+          <Label>Last Name</Label>
+          <Input
+              className="put"
+            type="caseNumber"
+            name="caseNumber"
+            id="caseNumber-field"
+            value={this.state.last_name}
+            onChange={e => this.setState({ last_name: e.target.value})}
+          />
+          <Label>Note: The Machine Spirit governing this archive is temperamental and only respects queries made with proper punctuation.<br/> Praise be to the Omnissiah.</Label>
+          </FormGroup>
 
           <ParticleEffectButton
             hidden={hidden}
             color='#850909'
 
           >
-            <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+            <Button style={{marginTop:"8em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
 
           </ParticleEffectButton>
 
+          <img className="search-pic pull-right" src={ process.env.PUBLIC_URL + "WWzoaC9.jpg"} alt="Omnissiah"/>
 
   </Form>
 </CardBody>

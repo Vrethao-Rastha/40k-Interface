@@ -11,7 +11,7 @@ import {
   CardTitle,
      } from 'reactstrap';
   import ParticleEffectButton from 'react-particle-effect-button'
-  import { fetchCaseReport, fetchNameReport, fetchLocationReport, clearCaseReport, clearNameReport, clearLocationReport } from '../Redux/Actions/FieldReportActions'
+  import { fetchCaseReport, clearCaseReport } from '../Redux/Actions/FieldReportActions'
 
 class CaseQuerry extends Component {
 
@@ -26,7 +26,7 @@ class CaseQuerry extends Component {
     
       componentDidMount() {
         if(this.props.case_search_result.length > 0){
-          this.props.fetchCaseReport(this.state.case, this.props.history)
+          this.props.clearCaseReport(this.state.case, this.props.history)
         }
       }
     
@@ -62,16 +62,17 @@ class CaseQuerry extends Component {
               value={this.state.case}
               onChange={e => this.setState({ case: e.target.value})}
             />
+            <Label>Note: The Machine Spirit governing this archive is temperamental and only respects queries made with proper punctuation.<br/> Praise be to the Omnissiah.</Label>
 
             <ParticleEffectButton
               hidden={hidden}
               color='#850909'
 
             >
-              <Button style={{marginTop:"1em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+              <Button style={{marginTop:"8em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
 
             </ParticleEffectButton>
-
+            <img className="search-pic pull-right" src={ process.env.PUBLIC_URL + "WWzoaC9.jpg"} alt="Omnissiah"/>
 
 </Form>
 </CardBody>
@@ -84,18 +85,12 @@ class CaseQuerry extends Component {
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
   fetchCaseReport,
-  fetchNameReport,
-  fetchLocationReport,
   userLogout,
-  clearCaseReport,
-  clearNameReport,
-  clearLocationReport
+  clearCaseReport
 }, dispatch)
 
 const mapStateToProps = state => ({
-  case_search_result: state.case_search_result,
-  name_search_result: state.name_search_result,
-  location_search_result: state.location_search_result
+  case_search_result: state.case_search_result
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CaseQuerry)); ;
