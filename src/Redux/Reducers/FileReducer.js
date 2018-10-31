@@ -16,7 +16,7 @@ import {
         return action.payload
       case DELETE_CASE_FILE_SUCCESS:
       let deletedCase = action.payload
-      return state.filter(vox => vox.id !== deletedCase.id)
+      return state.filter(file => file.file_number !== deletedCase)
       case DELETE_CASE_FILE_FAILED:
         return action.payload
       default:

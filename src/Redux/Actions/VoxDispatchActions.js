@@ -89,9 +89,10 @@ export const DELETE_CASE_FILE_FAILED = 'DELETE_CASE_FILE_FAILED'
       }))
     }
   }
-    export const deleteCaseFile = (File_Number) => {
+    export const deleteCaseFile = (file_number) => {
+      console.log('file==============>', file_number)
       return dispatch => {
-        axios.post(`https://young-tundra-99453.herokuapp.com/delete_case_file/`, { File_Number })
+        axios.delete(`https://young-tundra-99453.herokuapp.com/delete_case_file/${file_number}`,)
         .then(res => dispatch ({
           type: DELETE_CASE_FILE_SUCCESS,
           payload: res.data

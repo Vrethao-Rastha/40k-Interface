@@ -29,6 +29,26 @@ export const userLogin = (creds, history) => {
   }
 }
 
+export const userRegister = (user_name, password, rank, history) => {
+  return async dispatch => {
+    try {
+      let response = await axios.post(`https://young-tundra-99453.herokuapp.com/register`, {user_name, password, rank})
+      let newUser = response.data
+      dispatch({
+        type: USER_REGISTER_SUCCESS,
+        payload: newUser
+      })
+      history.push('/')
+    } catch (err) {
+      dispatch({
+        type: USER_REGISTER_FAILED,
+        payload: err
+      })
+      history.push('/')
+    }
+  }
+}
+
 
 
 export const userLogout = (history) => {
