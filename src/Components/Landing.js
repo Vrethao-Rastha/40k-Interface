@@ -40,7 +40,8 @@ class Landing extends Component {
   }
 
   render() {
-    console.log('fired', this.state)
+    const { password, user_name, rank } = this.state
+    const Enabled = password.length > 0 && user_name.length > 0 && rank.length > 0
 
     if(this.state.view === 0){
       return (
@@ -87,7 +88,7 @@ class Landing extends Component {
                           type="password"></Input>
                           
                 </FormGroup>
-                <Button style={{backgroundColor:"#850909", color:"black", fontFamily: 'MedievalSharp'}} type="submit">Submit</Button>
+                <Button disabled={!Enabled} style={{backgroundColor:"#850909", color:"black", fontFamily: 'MedievalSharp'}} type="submit">Submit</Button>
               </Form>
             </ModalBody>
             

@@ -38,13 +38,13 @@ export const userRegister = (user_name, password, rank, history) => {
         type: USER_REGISTER_SUCCESS,
         payload: newUser
       })
-      history.push('/')
+      history.push('/RegistrationSuccessful')
     } catch (err) {
       dispatch({
         type: USER_REGISTER_FAILED,
         payload: err
       })
-      history.push('/')
+      history.push('/RegistrationFailed')
     }
   }
 }

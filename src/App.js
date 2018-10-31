@@ -12,6 +12,8 @@ import Login from './Components/Login'
 import LoginFail from './Components/LoginFail'
 import CheckAuth from './Components/CheckAuth'
 import Admin from './Components/Admin'
+import RegistrationSuccessful from './Components/RegistrationSuccessful'
+import RegistrationFailed from './Components/RegistrationFailed'
 
 
 
@@ -25,6 +27,8 @@ class App extends Component {
 
           <Route exact path="/Login" component={ Login } />
           <Route exact path="/LoginFail" component={ LoginFail } />
+          <Route exact path="/RegistrationSuccessful" component={ RegistrationSuccessful } />
+          <Route exact path="/RegistrationFailed" component={ RegistrationFailed } />
           <Route path="/Dash" component={ CheckAuth(Dash)  } />
           <Route path="/Vox_Dispatch" component={ CheckAuth(VoxDispatch) } />
           <Route path="/Search_Results" component={ CheckAuth(SearchResults) } />
