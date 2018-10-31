@@ -103,7 +103,7 @@ class Login extends Component {
         
 
           <Modal isOpen={this.state.modal} toggle={this.toggle} className="CaseSearchModal">
-          <ModalHeader className="CaseSearchModal"  toggle={this.toggle}>Enter Credentials</ModalHeader>
+          <ModalHeader className="CaseSearchModal" style={{borderBottomColor:"#850909"}}  toggle={this.toggle}>Enter Credentials</ModalHeader>
           <ModalBody className="CaseSearchModal" >
             <Form>
               <FormGroup>
@@ -167,7 +167,7 @@ class Login extends Component {
   {this.state.toggle ? 
 
   <Modal isOpen={this.state.modal} onClosed={ this.toggleRegistration } toggle={this.toggle} className="CaseSearchModal">
-            <ModalHeader className="CaseSearchModal" toggle={this.toggle}>Enter Registration Credentials</ModalHeader>
+            <ModalHeader className="CaseSearchModal" toggle={this.toggle} style={{borderBottomColor:"#850909"}}>Enter Registration Credentials</ModalHeader>
             <ModalBody className="CaseSearchModal">
               <Form onSubmit={ this.handleSubmit }>
                 <FormGroup>
