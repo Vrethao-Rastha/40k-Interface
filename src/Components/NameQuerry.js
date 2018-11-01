@@ -44,17 +44,15 @@ class NameQuerry extends Component {
       }
 
     render() { 
-      console.log(this.state.name)
         const {
             hidden
           } = this.state
           
         return ( 
-          <div className="Search">
-                <Card className="col-md-6 offset-md-3 navDropdown">
+          <div className="Search col-sm-12">
+                <Card className="col-sm-6 query-card navDropdown">
 
 <CardBody className="navDropdown">
-  <CardTitle>Name Query</CardTitle>
 
   <Form onSubmit={this.submitNameQuerry}>
     <Label className="btns" for="caseNumber-field">Enter Name Query</Label>
@@ -85,7 +83,7 @@ class NameQuerry extends Component {
             color='#850909'
 
           >
-            <Button style={{marginTop:"8em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+            <Button className="query-button" type="submit">Submit</Button>
 
           </ParticleEffectButton>
 

@@ -21,8 +21,9 @@ class SearcResults extends Component {
           { (caseResults.length > 0) ? caseResults : 
             (locationResults.length > 0) ? locationResults : 
             (nameResults.length > 0) ? nameResults 
-            : <Card className="col-md-6 offset-md-3 card-background" style={{height:"18em", marginTop:"5em"}}>
+            : <Card className="col-sm-6 offset-sm-3" style={{height:"18em", marginTop:"5em"}}> 
             <CardTitle style={{marginTop:"2em"}}>No Results Found</CardTitle>
+            <img className="text-img2" src={ process.env.PUBLIC_URL + "inquisition_stamp_by_hikaru_119-d4u0rgc.jpg"} alt="stamp"/> 
           </Card> }
 
           <div className="spacer-div"></div>

@@ -12,22 +12,21 @@ class LoginFail extends Component {
   }
 
     render() {
-    if(this.state.toggle === true){
-
+    
       return (
         <div>
           <div className="fail"></div>
-          <div style={{fontSize: "100pt", color:"red"}}>{this.state.message}</div>
+
+            <div className="text-center override-fail2">ATTEMPTED PASSWORD OVERRIDE DETECTED!</div>
+
+
+          { this.state.toggle === true ?
+
+            <div className="text-center override-fail" >{this.state.message}</div>
+
+          : null }
         </div>
       );
-    }else {
-
-      return(
-        <div>
-          <div className="fail"></div>
-        </div>
-      )
-    }
   }
 }
 

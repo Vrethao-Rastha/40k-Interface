@@ -28,7 +28,7 @@ class Admin extends Component {
     Address: '',
     City: '',
     Bio: '',
-    File_Number: ''
+    file_number: ''
   }
 
   handlePost = e => {
@@ -38,7 +38,7 @@ class Admin extends Component {
 
   addCase = e => {
     e.preventDefault()
-    this.props.addCaseFile(this.state.First_Name, this.state.Last_Name, this.state.Address, this.state.City, this.state.Bio, this.state.File_Number)
+    this.props.addCaseFile(this.state.First_Name, this.state.Last_Name, this.state.Address, this.state.City, this.state.Bio, this.state.file_number)
   }
 
   componentDidMount() {
@@ -229,7 +229,7 @@ class Admin extends Component {
                             type="text"
                             name="text"
                             id="text-field"
-                            value={ this.state.File_Number }
+                            value={ this.state.file_number }
                             onChange={e => this.setState({ File_Number: e.target.value })}
 
                           />

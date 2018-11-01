@@ -82,13 +82,12 @@ class Login extends Component {
 
           <Navbar className="Navbar">
             <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition</NavbarBrand>
-            <Button className="mr-3 login-button" style={{backgroundColor:"#850909", color:"black", fontFamily: 'MedievalSharp'}} onClick={ this.toggleRegistration }>Register</Button>
+            <Button className="mr-3 mt-auto login-button" style={{backgroundColor:"#850909", color:"black", fontFamily: 'MedievalSharp'}} onClick={ this.toggleRegistration }>Register</Button>
           </Navbar>
 
 
           {(this.state.glitch === true) ?
           <ReactGlitch className="glitch"
-            style={{width:862, height:1210, marginLeft:"30%"}}
             src={require('../images/ravenor.jpg')} 
             glitching={true} 
             glitchOptions={{ 

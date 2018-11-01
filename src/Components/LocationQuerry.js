@@ -48,12 +48,11 @@ class LocationQuerry extends Component {
           } = this.state
 
         return ( 
-          <div className="Search">
+          <div className="Search col-sm-12">
                 
 
-<Card className="col-md-6 offset-md-3 navDropdown">
+<Card className="col-sm-6 query-card navDropdown">
       <CardBody className="navDropdown">
-        <CardTitle className="navDropdown">Location Query</CardTitle>
         <Form onSubmit={this.submitLocationQuerry}>
           <Label className="btns" for="caseNumber-field">Enter Location Query</Label>
                   <Input
@@ -71,7 +70,7 @@ class LocationQuerry extends Component {
                   color='#850909'
 
                 >
-                  <Button style={{marginTop:"8em", backgroundColor:"black", borderColor:"#850909", color:"#850909"}} type="submit">Submit</Button>
+                  <Button className="query-button" type="submit">Submit</Button>
 
                 </ParticleEffectButton>
                 <img className="search-pic pull-right" src={ process.env.PUBLIC_URL + "WWzoaC9.jpg"} alt="Omnissiah"/>

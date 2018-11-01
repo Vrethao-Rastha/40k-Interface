@@ -13,23 +13,19 @@ class RegistrationFailed extends Component {
   }
 
     render() {
-    if(this.state.toggle === true){
+    
 
       return (
         <div>
           <div className="fail"></div>
-          <div style={{fontSize: "100pt", color:"red"}}>{this.state.message}</div>
+          <div className="text-center override-fail2" >TAMPERING ATTEMT DETECTED. USER EXISTS</div>
+
+          { this.state.toggle ?  
+          <div className="text-center override-fail" >{this.state.message}</div>
+          : null }
         </div>
       );
-    }else {
-
-      return(
-        <div>
-          <div className="fail"></div>
-        </div>
-      )
     }
-  }
 }
 
 export default withRouter(RegistrationFailed);

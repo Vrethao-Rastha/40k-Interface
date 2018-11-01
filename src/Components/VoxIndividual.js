@@ -102,10 +102,10 @@ toggleEdit = () => {
       return(
         <div className="container-fluid">
 
-        <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-md-10 offset-md-1">
+        <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-sm-10 offset-sm-1">
           <div className="row mx-auto">
 
-             <img className="mr-auto" src={ process.env.PUBLIC_URL + "Inq.jpg"} alt="Inqisition Logo" style={{height:"7em"}} />
+             <img className="mr-auto footer-img" src={ process.env.PUBLIC_URL + "Inq.jpg"} alt="Inqisition Logo" />
 
            <div className="d-flex flex-column ml-4 mt-4">
             <CardTitle className="vox-header">VOX LOG ID: 
@@ -130,7 +130,7 @@ toggleEdit = () => {
                 onClick={ () => this.toggle(message.avatar)}
               />
                
-              <CardText className="admin-content mt-auto mb-auto col-md-9">
+              <CardText className="admin-content mt-auto mb-auto col-sm-9">
               
               { message.content} 
               
@@ -140,11 +140,11 @@ toggleEdit = () => {
 
              <div className="mt-auto">
              
-              <CardFooter className="col-md-12 quotes">
+              <CardFooter className="col-sm-12 quotes">
               <div className="row">
-                <img src={ process.env.PUBLIC_URL + "images.png" } alt="Inqisition Logo" style={{height:"5em", marginRight:"1em"}} />
+                <img className="footer-img" src={ process.env.PUBLIC_URL + "images.png" } alt="Inqisition Logo" />
               
-              <p className="quotes col-md-10 offset-md-2 mt-auto">{this.state.quotes[Math.floor((Math.random() * 15) + 1)].saying}</p>
+              <p className="quotes col-sm-10 offset-sm-2 mt-auto">{this.state.quotes[Math.floor((Math.random() * 15) + 1)].saying}</p>
               </div>
 
                {/* Conditional Render for Edit Functions */}

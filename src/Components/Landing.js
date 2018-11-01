@@ -43,7 +43,7 @@ class Landing extends Component {
       return (
         <div className="Landing">
           <Navbar className="Navbar">
-            <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition</NavbarBrand>
+            <NavbarBrand className="navDropdown" ><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition</NavbarBrand>
             
           </Navbar>
         </div>
@@ -52,13 +52,17 @@ class Landing extends Component {
   }
   else if(this.state.view === 1){
       return (
-        <div className="Landing2">
+        <div container-fluid>
+          <div className="Landing2">
+          
           <Navbar className="Navbar">
-            <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition</NavbarBrand>
+            <NavbarBrand className="navDropdown"><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition</NavbarBrand>
             
           </Navbar>
-          <Link className="btn btn-secondary col-md-2 offset-md-5 login-button" to="/Login" style={{ marginTop:"5em", backgroundColor:"#850909", color:"black", fontFamily: 'MedievalSharp'}}>Enter</Link>
-
+          </div>
+          <div className="row ">
+          <Link className="btn btn-secondary login-button mx-auto" to="/Login">Enter</Link>
+          </div>
         </div>
       );
     }

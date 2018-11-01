@@ -60,10 +60,10 @@ class Dash extends Component {
       return (
         <div className="dash">
           <Navbar className="Navbar">
-              <NavbarBrand><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition
+              <NavbarBrand className="navDropdown"><img style={{height:"2em", marginRight:"1em"}} src={process.env.PUBLIC_URL + "/images.png"} alt="Inquisition Logo" />His Majesty's Holy Inquisition
              </NavbarBrand>
 
-             { localStorage.rank ? <NavbarBrand className="text-center mx-auto"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand> : null }
+             { localStorage.rank ? <NavbarBrand className="text-center mx-auto navDropdown"> Welcome {localStorage.rank.replace(/"/g,"")} {localStorage.user_name.replace(/"/g,"")} </NavbarBrand> : null }
              
              <UncontrolledDropdown className="navDropdown">
                <DropdownToggle className="navDropdown" style={{borderRadius:"25px", color:"#850909", backgroundColor:"black", border:"none", borderColor:"#850909"}} caret>
@@ -71,25 +71,25 @@ class Dash extends Component {
                </DropdownToggle>
                  <DropdownMenu right className="navDropdown">
                    <DropdownItem className="navDropdown">
-                     <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} onClick={this.toggleCase}>Case Search</Button>
+                     <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em"}} onClick={this.toggleCase}>Case Search</Button>
                    </DropdownItem>
 
                   <DropdownItem className="navDropdown">
-                    <Button  onClick={this.toggleName} style={{marginTop: "1em", marginLeft:"1em", fontSize:"15pt"}} className="navDropdown">Name Search</Button>
+                    <Button  onClick={this.toggleName} style={{marginTop: "1em", marginLeft:"1em"}} className="navDropdown">Name Search</Button>
                   </DropdownItem>
 
                   <DropdownItem className="navDropdown">
-                    <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em", fontSize:"15pt"}} className="navDropdown">Location Search</Button>
+                    <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em"}} className="navDropdown">Location Search</Button>
                   </DropdownItem>
 
                   <DropdownItem className="navDropdown">
-                    {(localStorage.admin.replace(/"/g,"") === "17") ? <Link className="navDropdown btn btn-primary" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em", fontSize:"15pt"}} to="/Admin">Admin</Link>
+                    {(localStorage.admin.replace(/"/g,"") === "17") ? <Link className="navDropdown btn btn-primary" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em"}} to="/Admin">Admin</Link>
                     : null }
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
 
-              <Link className="NavbarButtons mx-5" to="/Vox_Dispatch" style={{ fontSize:"15pt", marginTop:".5em"}}>Astropathic Logs</Link>
+              <Link className="NavbarButtons mx-5" to="/Vox_Dispatch" style={{marginTop: ".5em"}}>Astropathic Logs</Link>
                <Button className="NavbarButtons mr-5" onClick={ this.logout }>Logout</Button>   
         </Navbar>
 
