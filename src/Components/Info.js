@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { deleteInfoFile, updateInfo } from '../Redux/Actions/VoxDispatchActions'
 import {
@@ -138,4 +139,4 @@ class Info extends Component {
     }, dispatch)
   
 
-export default connect(null, mapDispatchToProps) (Info);
+export default withRouter(connect(null, mapDispatchToProps)(Info));

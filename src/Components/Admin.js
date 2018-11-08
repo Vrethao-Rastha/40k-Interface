@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import VoxIndividual from './VoxIndividual'
 import { addVoxLog, addCaseFile, fetchVoxDispatch, addInfoFile } from '../Redux/Actions/VoxDispatchActions'
@@ -237,7 +238,7 @@ class Admin extends Component {
                             name="text"
                             id="text-field"
                             value={ this.state.file_number }
-                            onChange={e => this.setState({ File_Number: e.target.value })}
+                            onChange={e => this.setState({ file_number: e.target.value })}
 
                           />
 
@@ -314,4 +315,4 @@ const mapDispatchToProps = dispatch =>
     vox: state.vox_dispatch,
   })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Admin));

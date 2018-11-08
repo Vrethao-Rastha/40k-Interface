@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 
 class LoginFail extends Component {
 
@@ -30,4 +31,4 @@ class LoginFail extends Component {
   }
 }
 
-export default LoginFail;
+export default withRouter(LoginFail);

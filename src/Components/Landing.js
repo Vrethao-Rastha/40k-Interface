@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { userRegister } from '../Redux/Actions/authActions'
 import { Navbar, NavbarBrand } from 'reactstrap'
@@ -76,4 +77,4 @@ const mapDispatchToProps = dispatch =>
   }, dispatch)
 
 
-export default connect(null, mapDispatchToProps) (Landing);
+export default withRouter(connect(null, mapDispatchToProps) (Landing));

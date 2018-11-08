@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 export default function(ComposedComponent) {
@@ -25,5 +26,5 @@ export default function(ComposedComponent) {
     return { auth: state.auth };
   }
 
-  return connect(mapStateToProps)(Authentication);
+  return withRouter(connect(mapStateToProps)(Authentication));
 }

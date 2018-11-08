@@ -68,7 +68,7 @@ export const clearCaseReport = (case_number, history) => {
       type: FETCH_CASE_REPORT_SUCCESS,
       payload: res.data
     }))
-    history.push(`/Dash`)
+    //history.push(`/Dash`)
   }
 }
 
@@ -90,7 +90,7 @@ export const clearNameReport = (name, history) => {
       type: FETCH_NAME_REPORT_SUCCESS,
       payload: res.data
     }))
-    history.push(`/Dash`)
+    //history.push(`/Dash`)
   }
 }
 
@@ -112,7 +112,7 @@ export const clearLocationReport = (location, history) => {
       type: FETCH_LOCATION_REPORT_SUCCESS,
       payload: res.data
     }))
-    history.push(`/Dash`)
+    //history.push(`/Dash`)
   }
 }
 
@@ -134,6 +134,6 @@ export const clearInformationReport = (Title, history) => {
       type: FETCH_INFORMATION_REPORT_SUCCESS,
       payload: res.data
     }))
-    history.push(`/Dash`)
+    //history.push(`/Dash`)
   }
 }

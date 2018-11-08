@@ -85,9 +85,9 @@ export const UPDATE_INFO_FAILED = 'UPDATE_INFO_FAILED'
     }
   }
 
-  export const addCaseFile = (First_Name, Last_Name, Address, City, Bio, File_Number) => {
+  export const addCaseFile = (First_Name, Last_Name, Address, City, Bio, file_number) => {
     return dispatch => {
-      axios.post(`https://young-tundra-99453.herokuapp.com/add_case_file/`, { First_Name, Last_Name, Address, City, Bio, File_Number })
+      axios.post(`https://young-tundra-99453.herokuapp.com/add_case_file/`, { First_Name, Last_Name, Address, City, Bio, file_number })
       .then(res => dispatch ({
         type: ADD_CASE_FILE_SUCCESS,
         payload: res.data

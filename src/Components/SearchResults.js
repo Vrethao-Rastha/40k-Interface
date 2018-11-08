@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { Card, CardTitle } from 'reactstrap';
 import DashTopper from './DashTopper'
 import Files from './Files'
@@ -42,4 +43,4 @@ const mapStateToProps = state => ({
   info_search_result: state.info_search_result
 })
 
-export default connect(mapStateToProps)(SearcResults);
+export default withRouter(connect(mapStateToProps)(SearcResults));

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import VoxIndividual from './VoxIndividual'
 import { addVoxLog, fetchVoxDispatch } from '../Redux/Actions/VoxDispatchActions'
@@ -58,4 +59,4 @@ const mapStateToProps = state => ({
   addVox: state.add_vox
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(VoxDispatch);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VoxDispatch));

@@ -78,27 +78,23 @@ class Dash extends Component {
                  <DropdownMenu right className="navDropdown">
                  <DropdownItem className="navDropdown" style={{color:"white"}} header>Personel Records</DropdownItem>
                  <DropdownItem divider />
-                   <DropdownItem className="navDropdown">
-                     <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em"}} onClick={this.toggleCase}>Case Search</Button>
+                   <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleCase}>Case Search
                    </DropdownItem>
 
-                  <DropdownItem className="navDropdown">
-                    <Button  onClick={this.toggleName} style={{marginTop: "1em", marginLeft:"1em"}} className="navDropdown">Name Search</Button>
+                  <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleName}>Name Search
                   </DropdownItem>
 
-                  <DropdownItem className="navDropdown">
-                    <Button onClick={this.toggleLocation} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em"}} className="navDropdown">Location Search</Button>
+                  <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleLocation}>Location Search
                   </DropdownItem>
 
-                  <DropdownItem className="navDropdown">
-                    {(localStorage.admin.replace(/"/g,"") === "17") ? <Link className="navDropdown btn btn-primary" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em"}} to="/Admin">Admin</Link>
+                  <DropdownItem className="navDropdown text-center">
+                    {(localStorage.admin.replace(/"/g,"") === "17") ? <Link className="navDropdown btn btn-primary" to="/Admin">Admin</Link>
                     : null }
                   </DropdownItem>
 
-                  <DropdownItem className="navDropdown" style={{color:"white"}} header>Information</DropdownItem>
+                  <DropdownItem className="navDropdown text-center" style={{color:"white"}} header>Information</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem className="navDropdown">
-                    <Button onClick={this.toggleInfo} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em"}} className="navDropdown">General Query</Button>
+                  <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleInfo}>General Query
                   </DropdownItem>
 
                 </DropdownMenu>

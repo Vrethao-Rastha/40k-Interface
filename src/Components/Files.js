@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { deleteCaseFile } from '../Redux/Actions/VoxDispatchActions'
 import {
@@ -64,4 +65,4 @@ class Files extends Component {
     }, dispatch)
   
 
-export default connect(null, mapDispatchToProps) (Files);
+export default withRouter(connect(null, mapDispatchToProps) (Files));

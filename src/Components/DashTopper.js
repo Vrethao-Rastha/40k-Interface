@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import {
   Navbar,
@@ -35,4 +36,4 @@ const mapDispatchToProps = dispatch =>
   fetchLocationReport
 }, dispatch)
 
-export default connect(null, mapDispatchToProps) (DashTopper);
+export default withRouter(connect(null, mapDispatchToProps) (DashTopper));

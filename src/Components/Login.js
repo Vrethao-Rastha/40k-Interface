@@ -205,4 +205,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   userLogin,
   userRegister
 }, dispatch)
-  export default withRouter( connect(null, mapDispatchToProps)(Login));
+  export default withRouter(connect(null, mapDispatchToProps)(Login));
