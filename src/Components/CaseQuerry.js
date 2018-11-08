@@ -8,7 +8,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardTitle,
      } from 'reactstrap';
   import ParticleEffectButton from 'react-particle-effect-button'
   import { fetchCaseReport, clearCaseReport } from '../Redux/Actions/FieldReportActions'

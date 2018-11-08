@@ -8,10 +8,9 @@ import {
   Button,
   Card,
   CardBody,
-  CardTitle,
      } from 'reactstrap';
   import ParticleEffectButton from 'react-particle-effect-button'
-  import { fetchCaseReport, fetchNameReport, fetchLocationReport, clearCaseReport, clearNameReport, clearLocationReport, fetchInformationReport, clearInformationReport } from '../Redux/Actions/FieldReportActions'
+  import { fetchInformationReport, clearInformationReport } from '../Redux/Actions/FieldReportActions'
 
 class InfoQuerry extends Component {
 
@@ -88,9 +87,6 @@ class InfoQuerry extends Component {
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
   userLogout,
-  clearCaseReport,
-  clearNameReport,
-  clearLocationReport,
   fetchInformationReport,
   clearInformationReport
 }, dispatch)
