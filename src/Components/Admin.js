@@ -72,7 +72,7 @@ class Admin extends Component {
 
         </Navbar>
 
-          {(localStorage.admin.replace(/"/g,"") === '17') ?
+          {(localStorage.admin !== undefined && localStorage.admin.replace(/"/g,"") === '17') ?
           <div className="container-fluid">
 
             <Row>

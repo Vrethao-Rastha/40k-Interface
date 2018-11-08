@@ -88,7 +88,7 @@ class Dash extends Component {
                   </DropdownItem>
 
                   <DropdownItem className="navDropdown text-center">
-                    {(localStorage.admin.replace(/"/g,"") === "17") ? <Link className="navDropdown btn btn-primary" to="/Admin">Admin</Link>
+                    {(localStorage.admin !== undefined && localStorage.admin.replace(/"/g,"") === "17") ? <Link className="navDropdown btn btn-primary" to="/Admin">Admin</Link>
                     : null }
                   </DropdownItem>
 
