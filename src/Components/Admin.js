@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import VoxIndividual from './VoxIndividual'
-import { addVoxLog, addCaseFile, fetchVoxDispatch } from '../Redux/Actions/VoxDispatchActions'
+import { addVoxLog, addCaseFile, fetchVoxDispatch, addInfoFile } from '../Redux/Actions/VoxDispatchActions'
 import { Card, Row, Input, ListGroup, ListGroupItem,
   Button, Col, CardTitle, Navbar,
   NavbarBrand,
@@ -28,7 +28,9 @@ class Admin extends Component {
     Address: '',
     City: '',
     Bio: '',
-    file_number: ''
+    file_number: '',
+    Title: '',
+    Content:''
   }
 
   handlePost = e => {
@@ -39,6 +41,11 @@ class Admin extends Component {
   addCase = e => {
     e.preventDefault()
     this.props.addCaseFile(this.state.First_Name, this.state.Last_Name, this.state.Address, this.state.City, this.state.Bio, this.state.file_number)
+  }
+
+  addTerm = e => {
+    e.preventDefault()
+    this.props.addInfoFile(this.state.Title, this.state.Content, this.state.file_number)
   }
 
   componentDidMount() {
@@ -242,6 +249,48 @@ class Admin extends Component {
                     </Button>
                   </Form>
                         </Card>
+
+                  <Card className="admin-card">
+                    <CardTitle>Add Glossary Term</CardTitle>
+                    <Form onSubmit={ this.addTerm }>
+                    Title
+                          <Input
+                            style={{marginBottom:"1em"}}
+                            type="text"
+                            name="text"
+                            id="text-field"
+                            value={ this.state.Title }
+                            onChange={e => this.setState({ Title: e.target.value })}
+
+                          />
+                          <br/>
+                    Content
+                          <textarea rows="4" cols="30"
+                            style={{marginBottom:"1em"}}
+                            type="text"
+                            name="text"
+                            id="text-field"
+                            value={ this.state.Content }
+                            onChange={e => this.setState({ Content: e.target.value })}
+
+                          />
+                          <br/>
+                    File Number
+                          <Input
+                            style={{marginBottom:"1em"}}
+                            type="text"
+                            name="text"
+                            id="text-field"
+                            value={ this.state.file_number }
+                            onChange={e => this.setState({ file_number: e.target.value })}
+
+                          />
+
+                          <Button type="submit" className="pull-right" style={{marginLeft:"2em"}}>
+                      Post
+                    </Button>
+                    </Form>
+                  </Card>
                       </Col>
                 </Row>      
                         { logs }
@@ -257,7 +306,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({
     addVoxLog,
     addCaseFile,
-    fetchVoxDispatch
+    fetchVoxDispatch,
+    addInfoFile
   },dispatch)
 
   const mapStateToProps = state => ({

@@ -15,6 +15,7 @@ import {
   import NameQuerry from './NameQuerry'
   import LocationQuerry from './LocationQuerry'
   import CaseQuerry from './CaseQuerry'
+  import InfoQuerry from './InfoQuerry'
   import { fetchCaseReport, fetchNameReport, fetchLocationReport, clearCaseReport, clearNameReport, clearLocationReport } from '../Redux/Actions/FieldReportActions'
 
 class Dash extends Component {
@@ -23,6 +24,7 @@ class Dash extends Component {
     caseSearch: false,
     nameSearch: false,
     locationSearch: false,
+    infoSearch: false,
     name: '',
     location: '',
     case: '',
@@ -41,15 +43,19 @@ class Dash extends Component {
   }
 
   toggleCase = () => {
-    this.setState({caseSearch: !this.state.caseSearch, nameSearch: false, locationSearch: false})
+    this.setState({caseSearch: !this.state.caseSearch, nameSearch: false, locationSearch: false, infoSearch: false})
   }
 
   toggleName = () => {
-    this.setState({nameSearch: !this.state.nameSearch, caseSearch: false, locationSearch: false})
+    this.setState({nameSearch: !this.state.nameSearch, caseSearch: false, locationSearch: false, infoSearch: false})
   }
 
   toggleLocation = () => {
-    this.setState({locationSearch: !this.state.locationSearch, nameSearch:false, caseSearch: false})
+    this.setState({locationSearch: !this.state.locationSearch, nameSearch:false, caseSearch: false, infoSearch: false})
+  }
+
+  toggleInfo = () => {
+    this.setState({infoSearch: !this.state.infoSearch, nameSearch: false, locationSearch: false, caseSearch: false})
   }
 
   logout = (e) => {
@@ -70,6 +76,8 @@ class Dash extends Component {
                               File Access
                </DropdownToggle>
                  <DropdownMenu right className="navDropdown">
+                 <DropdownItem className="navDropdown" style={{color:"white"}} header>Personel Records</DropdownItem>
+                 <DropdownItem divider />
                    <DropdownItem className="navDropdown">
                      <Button className="navDropdown" style={{marginTop: "1em", marginLeft:"1em"}} onClick={this.toggleCase}>Case Search</Button>
                    </DropdownItem>
@@ -86,6 +94,13 @@ class Dash extends Component {
                     {(localStorage.admin.replace(/"/g,"") === "17") ? <Link className="navDropdown btn btn-primary" style={{marginTop: "1em", marginLeft:"3em", marginRight:"1em"}} to="/Admin">Admin</Link>
                     : null }
                   </DropdownItem>
+
+                  <DropdownItem className="navDropdown" style={{color:"white"}} header>Information</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem className="navDropdown">
+                    <Button onClick={this.toggleInfo} style={{marginTop: "1em", marginLeft:"1em", marginRight:"1em"}} className="navDropdown">General Query</Button>
+                  </DropdownItem>
+
                 </DropdownMenu>
               </UncontrolledDropdown>
 
@@ -96,6 +111,7 @@ class Dash extends Component {
           { this.state.caseSearch ? <CaseQuerry /> : null }
           { this.state.nameSearch ? <NameQuerry /> : null }
           { this.state.locationSearch ? <LocationQuerry /> : null }
+          { this.state.infoSearch ? <InfoQuerry /> : null }
         </div>
       );
     } 

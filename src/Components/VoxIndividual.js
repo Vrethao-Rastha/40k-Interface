@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { withRouter } from 'react-router-dom'
 import { updateVoxLog, deleteVoxLog } from '../Redux/Actions/VoxDispatchActions'
+import { fetchNameReport, clearNameReport } from '../Redux/Actions/FieldReportActions'
 import { Card, CardImg, CardText, CardBody, CardFooter,
   CardTitle, Button, Col, Row,
   Modal,
@@ -19,6 +21,7 @@ class VoxIndividual extends Component {
     avatar: '',
     caseNumber: '',
     id: '',
+    last_name: '',
     picToggle: false,
     quotes: [{
       saying:  "Question: What has the Emperor ever done for me? Answer: What have you ever done for the Emperor?   \n-Imperial Guard Training Cant"
@@ -87,12 +90,25 @@ class VoxIndividual extends Component {
   });
 }
 
-toggleEdit = () => {
+  toggleEdit = () => {
   this.setState({
     modal: !this.state.modal
   })
 }
 
+  nameQuery = (data) => {
+    console.log('data==============>', data)
+    //this.setState({ first_name: data})
+    //console.log('name===============>',this.state.first_name)
+    this.props.fetchNameReport(data, this.state.last_name, this.props.history)
+  }
+
+  componentDidMount() {
+    if(this.props.name_search_result.length > 0){
+        this.setState({first_name: ''})
+        this.props.clearNameReport(this.state.first_name, this.props.history)
+      }
+  }
 
   render(){
 
@@ -113,7 +129,8 @@ toggleEdit = () => {
             </CardTitle>
 
              <CardTitle className="vox-header">SENDER: 
-               <span className="vox-data">{ message.senderName }</span>
+               <span value={ message.senderName } onClick={ () => this.nameQuery(message.senderName.replace(/\s+/, '\x01').split('\x01')[0]
+)} className="vox-data">{ message.senderName }</span>
             </CardTitle>
            </div>
           
@@ -228,11 +245,14 @@ toggleEdit = () => {
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
     updateVoxLog,
-    deleteVoxLog
+    deleteVoxLog,
+    fetchNameReport, 
+    clearNameReport
   }, dispatch)
 
 const mapStateToProps = state => ({
   vox: state.vox_dispatch,
+  name_search_result: state.name_search_result
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(VoxIndividual);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VoxIndividual));

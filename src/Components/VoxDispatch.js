@@ -23,10 +23,6 @@ class VoxDispatch extends Component {
     this.props.addVoxLog(this.state.content, this.state.name)
   }
 
-  componentDidMount() {
-    this.props.fetchVoxDispatch()
-  }
-
   render() {
     const logs = this.props.vox.map(message => <VoxIndividual key={message.id} message={message} /> )
     return (

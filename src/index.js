@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css';
 import { Provider } from 'react-redux'
+import { fetchVoxDispatch } from './Redux/Actions/VoxDispatchActions'
 import store from './Redux/store'
 import './index.css';
 import App from './App';
 
 let newStore = store()
+
+newStore.dispatch(fetchVoxDispatch())
 
 ReactDOM.render(
   <Provider store={newStore}>

@@ -12,11 +12,20 @@ export const ADD_VOX_DISPATCH_FAILED = 'ADD_VOX_DISPATCH_FAILED'
 export const DELETE_VOX_DISPATCH_SUCCESS = 'DELETE_VOX_DISPATCH_SUCCESS'
 export const DELETE_VOX_DISPATCH_FAILED = 'DELETE_VOX_DISPATCH_FAILED'
 
-export const ADD_CASE_FILE_SUCCESS = 'ADD_CASE_FILE_SUCCESS '
-export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED '
+export const ADD_CASE_FILE_SUCCESS = 'ADD_CASE_FILE_SUCCESS'
+export const ADD_CASE_FILE_FAILED = 'ADD_CASE_FILE_FAILED'
 
 export const DELETE_CASE_FILE_SUCCESS = 'DELETE_CASE_FILE_SUCCESS'
 export const DELETE_CASE_FILE_FAILED = 'DELETE_CASE_FILE_FAILED'
+
+export const DELETE_INFO_FILE_SUCCESS = 'DELETE_INFO_FILE_SUCCESS'
+export const DELETE_INFO_FILE_FAILED = 'DELETE_INFO_FILE_FAILED'
+
+export const ADD_INFO_FILE_SUCCESS = 'ADD_INFO_FILE_SUCCESS'
+export const ADD_INFO_FILE_FAILED = 'ADD_INFO_FILE_FAILED'
+
+export const UPDATE_INFO_SUCCESS = 'UPDATE_INFO_SUCCESS'
+export const UPDATE_INFO_FAILED = 'UPDATE_INFO_FAILED'
 
 
 
@@ -89,6 +98,7 @@ export const DELETE_CASE_FILE_FAILED = 'DELETE_CASE_FILE_FAILED'
       }))
     }
   }
+
     export const deleteCaseFile = (file_id) => {
       return dispatch => {        
         axios.delete(`https://young-tundra-99453.herokuapp.com/delete_case_file/${file_id}`,)
@@ -102,3 +112,45 @@ export const DELETE_CASE_FILE_FAILED = 'DELETE_CASE_FILE_FAILED'
         }))
       }
   }
+
+  export const addInfoFile = ( Title, Content, file_number) => {
+    return dispatch => {
+      axios.post(`https://young-tundra-99453.herokuapp.com/add_info_file/`, { Title, Content, file_number })
+      .then(res => dispatch ({
+        type: ADD_INFO_FILE_SUCCESS,
+        payload: res.data
+      }))
+      .catch(err => dispatch({
+        type: ADD_INFO_FILE_FAILED,
+        payload: err
+      }))
+    }
+  }
+
+  export const deleteInfoFile = (id) => {
+    return dispatch => {        
+      axios.delete(`https://young-tundra-99453.herokuapp.com/information_search/${id}`,)
+      .then(res => dispatch ({
+        type: DELETE_INFO_FILE_SUCCESS,
+        payload: res.data
+      }))
+      .catch(err => dispatch({
+        type: DELETE_INFO_FILE_FAILED,
+        payload: err
+      }))
+    }
+}
+
+export const updateInfo = (Title, Content, file_number, id) => {
+  return dispatch => {
+    axios.put(`https://young-tundra-99453.herokuapp.com/update_info_file/${id}`, { Title, Content, file_number })
+    .then(res => dispatch({
+      type: UPDATE_INFO_SUCCESS,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: UPDATE_INFO_FAILED,
+      payload: err
+    }))
+  }
+}
