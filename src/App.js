@@ -14,6 +14,7 @@ import CheckAuth from './Components/CheckAuth'
 import Admin from './Components/Admin'
 import RegistrationSuccessful from './Components/RegistrationSuccessful'
 import RegistrationFailed from './Components/RegistrationFailed'
+import ScrollManager from './Components/ScrollManager'
 
 
 
@@ -21,10 +22,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-
+        <ScrollManager>
+         <Switch>
           <Route exact path="/" component={ Landing } />
-
           <Route exact path="/Login" component={ Login } />
           <Route exact path="/LoginFail" component={ LoginFail } />
           <Route exact path="/RegistrationSuccessful" component={ RegistrationSuccessful } />
@@ -33,7 +33,8 @@ class App extends Component {
           <Route path="/Vox_Dispatch" component={ CheckAuth(VoxDispatch) } />
           <Route path="/Search_Results" component={ CheckAuth(SearchResults) } />
           <Route path="/Admin" component={ CheckAuth(Admin) } />
-        </Switch>
+         </Switch>
+        </ScrollManager>
       </Router>
 
     );
