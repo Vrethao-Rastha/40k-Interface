@@ -121,21 +121,31 @@ class Admin extends Component {
                                 <br/>
                                                              
                                 <ListGroup>
-                                  <ListGroupItem>/not found.png</ListGroupItem>
-                                  <ListGroupItem>/chess.jpg</ListGroupItem>
-                                  <ListGroupItem>/Drog1.jpg</ListGroupItem>
-                                  <ListGroupItem>/dude.jpg</ListGroupItem>
-                                  <ListGroupItem>/eisenhorn-01.jpg</ListGroupItem>
-                                  <ListGroupItem>/eldar.jpg</ListGroupItem>
-                                  <ListGroupItem>/juliana.jpg</ListGroupItem>
-                                  <ListGroupItem>/Sister Of Battle.jpg</ListGroupItem>
-                                  <ListGroupItem>/tarot.png</ListGroupItem>
-                                  <ListGroupItem>/tattoo.png</ListGroupItem>
-                                  <ListGroupItem>/cute.jpg</ListGroupItem>
-                                  <ListGroupItem>/Inquisidora_Amanda_.jpg</ListGroupItem>
-                                  <ListGroupItem>/Inquisitor.jpg</ListGroupItem>
-                                  <ListGroupItem>/lond inq.jpg</ListGroupItem>
+                                  <Row>
+                                    <Col>
+                                      <ListGroupItem className="admin-list">/not found.png</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/chess.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/Drog1.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/dude.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/eisenhorn.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/eldar.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/juliana.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/tarot.png</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/tattoo.png</ListGroupItem>
+                                    </Col>
 
+                                    <Col>
+                                      <ListGroupItem className="admin-list">/Battle Sister.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/Celemene.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/Amanda.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/Inquisitor.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/Inq Lord.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/Elsarryna.JPG</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/kesh.jpg</ListGroupItem>
+                                      <ListGroupItem className="admin-list">/executioner.jpg</ListGroupItem>
+                                    </Col>
+
+                                  </Row>
                                 </ListGroup>
 
                                 <br/>

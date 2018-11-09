@@ -42,8 +42,6 @@ class InfoQuerry extends Component {
 
     render() { 
 
-        console.log('info============>', this.state.info)
-
         const {
             hidden
           } = this.state

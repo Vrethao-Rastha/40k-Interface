@@ -24,7 +24,7 @@ import {
          case DELETE_INFO_FILE_FAILED:
            return action.payload
          case ADD_INFO_FILE_SUCCESS:
-           return [...action.payload]
+           return [action.payload]
          case ADD_INFO_FILE_FAILED:
            return action.payload
          case UPDATE_INFO_SUCCESS:

@@ -22,11 +22,11 @@ import {
 class Info extends Component {
 
   state = {
-    id: '',
+    id: this.props.file.id || '',
     file_id: '',
-    Title: '',
-    Content: '',
-    file_number: '',
+    Title: this.props.file.Title || '',
+    Content: this.props.file.Content || '',
+    file_number: this.props.file.file_number || '',
     modal: false
   }
 
@@ -44,14 +44,12 @@ class Info extends Component {
   }
 
   render() {
-    console.log(this.state)
     const { file } = this.props
   return(
   <div>
-    <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-sm-8 offset-sm-2 card-background">
+    <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-sm-4 offset-sm-4 card-background">
       <CardBody>
-      <img className="text-img2" src={ process.env.PUBLIC_URL + "inquisition_stamp_by_hikaru_119-d4u0rgc.jpg"} alt="stamp"/> 
-        <CardTitle className="card-headings">Search Results</CardTitle>
+      <img className="text-img3" src={ process.env.PUBLIC_URL + "/Adeptus_Ministorum_Icon.jpg"} alt="stamp"/> 
         <CardTitle className="card-headings">{ file.Title }</CardTitle>
 
           <CardText className="card-content">{file.Content}</CardText>

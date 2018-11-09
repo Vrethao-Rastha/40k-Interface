@@ -27,6 +27,9 @@ export const ADD_INFO_FILE_FAILED = 'ADD_INFO_FILE_FAILED'
 export const UPDATE_INFO_SUCCESS = 'UPDATE_INFO_SUCCESS'
 export const UPDATE_INFO_FAILED = 'UPDATE_INFO_FAILED'
 
+export const UPDATE_CASE_FILE_SUCCESS = 'UPDATE_CASE_FILE_SUCCESS'
+export const UPDATE_CASE_FILE_FAILED = 'UPDATE_CASE_FILE_FAILED'
+
 
 
   export const fetchVoxDispatch = () => {
@@ -94,6 +97,20 @@ export const UPDATE_INFO_FAILED = 'UPDATE_INFO_FAILED'
       }))
       .catch(err => dispatch({
         type: ADD_CASE_FILE_FAILED,
+        payload: err
+      }))
+    }
+  }
+
+  export const updateCaseFile = (First_Name, Last_Name, Address, City, Bio, file_number, file_id) => {
+    return dispatch => {
+      axios.put(`https://young-tundra-99453.herokuapp.com/update_case_file/${file_id}`, { First_Name, Last_Name, Address, City, Bio, file_number })
+      .then(res => dispatch ({
+        type: UPDATE_CASE_FILE_SUCCESS,
+        payload: res.data
+      }))
+      .catch(err => dispatch({
+        type: UPDATE_CASE_FILE_FAILED,
         payload: err
       }))
     }

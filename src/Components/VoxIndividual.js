@@ -17,10 +17,10 @@ class VoxIndividual extends Component {
 
   state ={
     modal: false,
-    content: '',
-    avatar: '',
-    caseNumber: '',
-    id: '',
+    content: this.props.message.content || '',
+    avatar: this.props.message.avatar || '',
+    caseNumber: this.props.message.caseNumber || '',
+    id: this.props.message.id || '',
     last_name: '',
     picToggle: false,
     quotes: [{
@@ -74,6 +74,7 @@ class VoxIndividual extends Component {
   }
 
   handleEdit = e => {
+    e.preventDefault()
     this.props.updateVoxLog(this.state.content, this.state.caseNumber, this.state.id)
   }
 
@@ -97,9 +98,6 @@ class VoxIndividual extends Component {
 }
 
   nameQuery = (data) => {
-    console.log('data==============>', data)
-    //this.setState({ first_name: data})
-    //console.log('name===============>',this.state.first_name)
     this.props.fetchNameReport(data, this.state.last_name, this.props.history)
   }
 
@@ -111,7 +109,6 @@ class VoxIndividual extends Component {
   }
 
   render(){
-
     const { message } = this.props
     if(message){
 
