@@ -13,7 +13,7 @@ import {
   export default (state = initialState, action) => {
     switch(action.type) {
       case ADD_CASE_FILE_SUCCESS:
-        return [...action.payload]
+        return [action.payload]
       case ADD_CASE_FILE_FAILED:
         return action.payload
       case DELETE_CASE_FILE_SUCCESS:
