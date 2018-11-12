@@ -170,7 +170,7 @@ input[type=text] {
   width: 100%;
   height: 100%;
   z-index: -10;
-  background: url('../src/images/inquisition-warhammer-40k-31853-1920x1080.jpg') no-repeat center center;
+  background: url('../src/images/admech.jpeg') no-repeat center center;
   background-color: black;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -180,6 +180,9 @@ input[type=text] {
 .card-headings {
   font-size: 20pt;
   font-style: oblique;
+}
+.info-background {
+  background-color: gray;
 }
 .quotes {
   white-space: pre-wrap;
@@ -345,6 +348,14 @@ input[type=text] {
   position: absolute;
   height: 85%;
   top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+ }
+ .text-img2b {
+  opacity: 0.3;
+  position: absolute;
+  height: 55%;
+  top: 30%;
   left: 60%;
   transform: translate(-50%, -50%);
  }

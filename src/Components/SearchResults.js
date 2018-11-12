@@ -6,13 +6,12 @@ import DashTopper from './DashTopper'
 import Files from './Files'
 import Info from './Info'
 
-
 class SearcResults extends Component {
   render() {
     let caseResults = this.props.case_search_result.map(file => <Files key={ file.id} file={ file } />)
     let nameResults = this.props.name_search_result.map(file => <Files key={ file.id} file={ file } />)
     let locationResults = this.props.location_search_result.map(file => <Files key={ file.id} file={ file } />)
-    let infoResults = this.props.info_search_result.map(file => <Info key={ file.id } file={ file } />)
+    let searchTerm = this.props.info_search_result.map(file => <Info key={ file.id } file={ file } />)
 
       return(
         <div>
@@ -24,8 +23,9 @@ class SearcResults extends Component {
           { (caseResults.length > 0) ? caseResults : 
             (locationResults.length > 0) ? locationResults : 
             (nameResults.length > 0) ? nameResults :
-            (infoResults.length > 0) ? infoResults :
-            <Card className="col-sm-6 offset-sm-3" style={{height:"18em", marginTop:"5em"}}> 
+            (searchTerm.length > 0) ? searchTerm :
+            
+            <Card className="col-sm-4 offset-sm-4" style={{height:"18em", marginTop:"5em"}}> 
             <CardTitle style={{marginTop:"2em"}}>No Results Found</CardTitle>
             <img className="text-img2" src={ process.env.PUBLIC_URL + "inquisition_stamp_by_hikaru_119-d4u0rgc.jpg"} alt="stamp"/> 
           </Card> }

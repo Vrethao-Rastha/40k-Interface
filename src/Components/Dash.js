@@ -76,7 +76,7 @@ class Dash extends Component {
                               File Access
                </DropdownToggle>
                  <DropdownMenu right className="navDropdown">
-                 <DropdownItem className="navDropdown" style={{color:"white"}} header>Personel Records</DropdownItem>
+                 {/* <DropdownItem className="navDropdown" style={{color:"white"}} header>Personel Records</DropdownItem>
                  <DropdownItem divider />
                    <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleCase}>Case Search
                    </DropdownItem>
@@ -85,6 +85,11 @@ class Dash extends Component {
                   </DropdownItem>
 
                   <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleLocation}>Location Search
+                  </DropdownItem> */}
+
+                  <DropdownItem className="navDropdown text-center" style={{color:"white"}} header>Information</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleInfo}>Data Query
                   </DropdownItem>
 
                   <DropdownItem className="navDropdown text-center">
@@ -92,10 +97,7 @@ class Dash extends Component {
                     : null }
                   </DropdownItem>
 
-                  <DropdownItem className="navDropdown text-center" style={{color:"white"}} header>Information</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleInfo}>General Query
-                  </DropdownItem>
+                  
 
                 </DropdownMenu>
               </UncontrolledDropdown>

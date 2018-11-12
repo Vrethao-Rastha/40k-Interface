@@ -47,15 +47,38 @@ class Info extends Component {
     const { file } = this.props
   return(
   <div>
-    <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-sm-4 offset-sm-4 card-background">
+    {file.Title ?
+    <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-sm-6 offset-sm-3 card-background">
+    
       <CardBody>
       <img className="text-img3" src={ process.env.PUBLIC_URL + "/Adeptus_Ministorum_Icon.jpg"} alt="stamp"/> 
         <CardTitle className="card-headings">{ file.Title }</CardTitle>
-
+        
           <CardText className="card-content">{file.Content}</CardText>
         <CardTitle className="card-headings">File Number</CardTitle>
           <CardText className="card-content">{file.file_number}</CardText>
+        </CardBody>
+        </Card>
+     : 
+     <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-sm-6 offset-sm-3 card-background">
+
+      <CardBody>
+        <img className="text-img2b" src={ process.env.PUBLIC_URL + "inquisition_stamp_by_hikaru_119-d4u0rgc.jpg"} alt="stamp"/> 
+        <CardTitle className="card-headings">First Name</CardTitle>
+          <CardText className="card-content">{file.First_Name}</CardText>
+        <CardTitle className="card-headings">Last Name</CardTitle>
+          <CardText className="card-content">{file.Last_Name}</CardText>
+        <CardTitle className="card-headings">Address</CardTitle>
+          <CardText className="card-content">{file.Address}</CardText>
+        <CardTitle className="card-headings">Hive Sub-City</CardTitle>
+          <CardText className="card-content">{file.City}</CardText>
+        <CardTitle className="card-headings">Bio</CardTitle>
+          <CardText className="card-content">{file.Bio}</CardText>
+        <CardTitle className="card-headings">File Number</CardTitle>
+          <CardText className="card-content">{file.file_number}</CardText>
+      
       </CardBody>
+      
         {(localStorage.admin.replace(/"/g,"") === '17') ? 
         <CardFooter>
         <Button className="pull-right" onClick={ this.toggle }>Edit</Button>
@@ -66,6 +89,8 @@ class Info extends Component {
         : null }
         
     </Card>
+    }
+    
 
     <Modal isOpen={ this.state.modal } toggle={ this.toggle } className={ this.props.className }>
 
