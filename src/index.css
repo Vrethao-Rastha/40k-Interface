@@ -6,6 +6,12 @@ body {
 }
 
 .Navbar {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   background-color: black;
   font-size: 25pt;
   color: #850909;

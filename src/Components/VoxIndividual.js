@@ -113,7 +113,7 @@ class VoxIndividual extends Component {
     if(message){
 
       return(
-        <div className="container-fluid">
+        <div className="container-fluid" style={{marginTop:"5em", marginBottom:"5em"}}>
 
         <Card style={{borderRadius:"5%", marginBottom:"2em", marginTop:"2em"}} className="container col-sm-10 offset-sm-1">
           <div className="row mx-auto">

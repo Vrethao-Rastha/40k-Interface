@@ -46,9 +46,9 @@ class Info extends Component {
   render() {
     const { file } = this.props
   return(
-  <div>
+  <div style={{marginTop:"5em"}}>
     {file.Title ?
-    <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-sm-6 offset-sm-3 card-background">
+    <Card style={{marginTop:"5em", marginBottom:"5em", borderRadius:"5%"}} className="col-sm-6 offset-sm-3 card-background">
     
       <CardBody>
       <img className="text-img3" src={ process.env.PUBLIC_URL + "/Adeptus_Ministorum_Icon.jpg"} alt="stamp"/> 
@@ -69,9 +69,12 @@ class Info extends Component {
         <CardTitle className="card-headings">Last Name</CardTitle>
           <CardText className="card-content">{file.Last_Name}</CardText>
         <CardTitle className="card-headings">Address</CardTitle>
+        <CardTitle className="card-headings">Hive</CardTitle>
+          <CardText className="card-content">{file.Hive}</CardText>
+          <CardTitle className="card-headings">Hive Stack</CardTitle>
+          <CardText className="card-content">{file.Hive_Stack}</CardText>
+          <CardTitle className="card-headings">Address</CardTitle>
           <CardText className="card-content">{file.Address}</CardText>
-        <CardTitle className="card-headings">Hive Sub-City</CardTitle>
-          <CardText className="card-content">{file.City}</CardText>
         <CardTitle className="card-headings">Bio</CardTitle>
           <CardText className="card-content">{file.Bio}</CardText>
         <CardTitle className="card-headings">File Number</CardTitle>

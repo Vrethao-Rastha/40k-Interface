@@ -28,7 +28,8 @@ class Files extends Component {
     First_Name: this.props.file.First_Name || '',
     Last_Name: this.props.file.Last_Name || '',
     Address: this.props.file.Address || '',
-    City: this.props.file.City || '',
+    Hive: this.props.file.Hive || '',
+    Hive_Stack: this.props.file.Hive_Stack || '',
     Bio: this.props.file.Bio || '',
     file_number: this.props.file.file_number || '',
     
@@ -44,7 +45,7 @@ class Files extends Component {
 
   handleUpdate = (e) => {
     e.preventDefault()
-    this.props.updateCaseFile( this.state.First_Name, this.state.Last_Name, this.state.Address, this.state.City, this.state.Bio, this.state.file_number, this.state.file_id ) 
+    this.props.updateCaseFile( this.state.First_Name, this.state.Last_Name, this.state.Address, this.state.Hive, this.state.Hive_Stack, this.state.Bio, this.state.file_number, this.state.file_id ) 
   }
 
   render() {
@@ -56,14 +57,17 @@ class Files extends Component {
     <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-sm-8 offset-sm-2 card-background">
       <CardBody>
       <img className="text-img2" src={ process.env.PUBLIC_URL + "inquisition_stamp_by_hikaru_119-d4u0rgc.jpg"} alt="stamp"/> 
-        <CardTitle className="card-headings">First Name</CardTitle>
+      <CardTitle className="card-headings">First Name</CardTitle>
           <CardText className="card-content">{file.First_Name}</CardText>
         <CardTitle className="card-headings">Last Name</CardTitle>
           <CardText className="card-content">{file.Last_Name}</CardText>
         <CardTitle className="card-headings">Address</CardTitle>
+        <CardTitle className="card-headings">Hive</CardTitle>
+          <CardText className="card-content">{file.Hive}</CardText>
+          <CardTitle className="card-headings">Hive Stack</CardTitle>
+          <CardText className="card-content">{file.Hive_Stack}</CardText>
+          <CardTitle className="card-headings">Address</CardTitle>
           <CardText className="card-content">{file.Address}</CardText>
-        <CardTitle className="card-headings">Hive Sub-City</CardTitle>
-          <CardText className="card-content">{file.City}</CardText>
         <CardTitle className="card-headings">Bio</CardTitle>
           <CardText className="card-content">{file.Bio}</CardText>
         <CardTitle className="card-headings">File Number</CardTitle>
@@ -128,14 +132,26 @@ class Files extends Component {
                          />
                          <br/>
 
-                         City
+                         Hive
                          <Input
                            style={{marginBottom:"1em"}}
                            type="text"
                            name="text"
                            id="text-field"
-                           value={ this.state.City }
-                           onChange={e => this.setState({ City: e.target.value })}
+                           value={ this.state.Hive }
+                           onChange={e => this.setState({ Hive: e.target.value })}
+
+                         />
+                         <br/>
+
+                         Hive Stack
+                         <Input
+                           style={{marginBottom:"1em"}}
+                           type="text"
+                           name="text"
+                           id="text-field"
+                           value={ this.state.Hive_Stack }
+                           onChange={e => this.setState({ Hive_Stack: e.target.value })}
 
                          />
                          <br/>

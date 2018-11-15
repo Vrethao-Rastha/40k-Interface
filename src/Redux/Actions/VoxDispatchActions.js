@@ -88,9 +88,9 @@ export const UPDATE_CASE_FILE_FAILED = 'UPDATE_CASE_FILE_FAILED'
     }
   }
 
-  export const addCaseFile = (First_Name, Last_Name, Address, City, Bio, file_number) => {
+  export const addCaseFile = (First_Name, Last_Name, Address, Hive, Hive_Stack, Bio, file_number) => {
     return dispatch => {
-      axios.post(`https://young-tundra-99453.herokuapp.com/add_case_file/`, { First_Name, Last_Name, Address, City, Bio, file_number })
+      axios.post(`https://young-tundra-99453.herokuapp.com/add_case_file/`, { First_Name, Last_Name, Address, Hive, Hive_Stack, Bio, file_number })
       .then(res => dispatch ({
         type: ADD_CASE_FILE_SUCCESS,
         payload: res.data
@@ -102,9 +102,9 @@ export const UPDATE_CASE_FILE_FAILED = 'UPDATE_CASE_FILE_FAILED'
     }
   }
 
-  export const updateCaseFile = (First_Name, Last_Name, Address, City, Bio, file_number, file_id) => {
+  export const updateCaseFile = (First_Name, Last_Name, Address, Hive, Hive_Stack, Bio, file_number, file_id) => {
     return dispatch => {
-      axios.put(`https://young-tundra-99453.herokuapp.com/update_case_file/${file_id}`, { First_Name, Last_Name, Address, City, Bio, file_number })
+      axios.put(`https://young-tundra-99453.herokuapp.com/update_case_file/${file_id}`, { First_Name, Last_Name, Address, Hive, Hive_Stack, Bio, file_number })
       .then(res => dispatch ({
         type: UPDATE_CASE_FILE_SUCCESS,
         payload: res.data
