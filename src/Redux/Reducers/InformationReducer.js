@@ -1,6 +1,7 @@
 import {
     FETCH_INFORMATION_REPORT_SUCCESS,
     FETCH_INFORMATION_REPORT_FAILED,
+    FETCH_GLOSSARY_REPORT_SUCCESS,
    } from '../Actions/FieldReportActions'
 import {
   DELETE_INFO_FILE_SUCCESS,
@@ -19,6 +20,8 @@ import {
            return [...action.payload]
          case FETCH_INFORMATION_REPORT_FAILED:
            return action.payload
+         case FETCH_GLOSSARY_REPORT_SUCCESS:
+           return [...action.payload]
          case DELETE_INFO_FILE_SUCCESS:
            return [...action.payload]
          case DELETE_INFO_FILE_FAILED:

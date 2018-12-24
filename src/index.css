@@ -367,9 +367,9 @@ input[type=text] {
  }
  .text-img3 {
   position: absolute;
-  height: 25%;
-  top: 65%;
-  left: 90%;
+  height: 85%;
+  top: 50%;
+  left: 6%;
   transform: translate(-50%, -50%);
  }
 .Landing2 {

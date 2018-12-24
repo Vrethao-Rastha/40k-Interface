@@ -52,13 +52,16 @@ class Info extends Component {
     
       <CardBody>
       <img className="text-img3" src={ process.env.PUBLIC_URL + "/Adeptus_Ministorum_Icon.jpg"} alt="stamp"/> 
+      <div className="offset-1">
         <CardTitle className="card-headings">{ file.Title }</CardTitle>
         
           <CardText className="card-content">{file.Content}</CardText>
         <CardTitle className="card-headings">File Number</CardTitle>
           <CardText className="card-content">{file.file_number}</CardText>
+          </div>
         </CardBody>
         </Card>
+        
      : 
      <Card style={{marginTop:"2em", marginBottom:"2em", borderRadius:"5%"}} className="col-sm-6 offset-sm-3 card-background">
 
@@ -68,7 +71,6 @@ class Info extends Component {
           <CardText className="card-content">{file.First_Name}</CardText>
         <CardTitle className="card-headings">Last Name</CardTitle>
           <CardText className="card-content">{file.Last_Name}</CardText>
-        <CardTitle className="card-headings">Address</CardTitle>
         <CardTitle className="card-headings">Hive</CardTitle>
           <CardText className="card-content">{file.Hive}</CardText>
           <CardTitle className="card-headings">Hive Stack</CardTitle>

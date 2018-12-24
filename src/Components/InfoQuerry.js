@@ -22,13 +22,6 @@ class InfoQuerry extends Component {
         hidden: false,
         animating: false
       }
-
-      componentDidMount() {
-        if(this.props.info_search_result.length > 0){
-            this.setState({info: ''})
-            this.props.clearInformationReport(this.state.info, this.props.history)
-          }
-      }
     
       submitInfoQuerry = (e) => {
         e.preventDefault()

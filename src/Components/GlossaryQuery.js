@@ -10,34 +10,27 @@ import {
   CardBody,
      } from 'reactstrap';
   import ParticleEffectButton from 'react-particle-effect-button'
-  import { fetchCaseReport, fetchNameReport, fetchLocationReport, clearCaseReport, clearNameReport, clearLocationReport } from '../Redux/Actions/FieldReportActions'
+  import { fetchGlossaryReport, clearGlossaryReport } from '../Redux/Actions/FieldReportActions'
 
-class LocationQuerry extends Component {
+class GlossaryQuerry extends Component {
 
     state = {
         caseSearch: false,
         nameSearch: false,
         locationSearch: false,
-        location: '',
+        info: '',
         hidden: false,
         animating: false
       }
-
-      componentDidMount() {
-        if(this.props.location_search_result.length > 0){
-            this.setState({location: ''})
-            this.props.clearLocationReport(this.state.location, this.props.history)
-          }
-      }
     
-      submitLocationQuerry = (e) => {
+      submitGlossaryQuerry = (e) => {
         e.preventDefault()
         if (this.state.animating) return
         this.setState({
           hidden: !this.state.hidden,
           animating: true
         })
-        setTimeout(() => {this.props.fetchLocationReport(this.state.location, this.props.history)}, 1500)
+        setTimeout(() => {this.props.fetchGlossaryReport(this.state.info, this.props.history)}, 1500)
       }
 
     render() { 
@@ -52,15 +45,15 @@ class LocationQuerry extends Component {
 
 <Card className="col-sm-6 query-card navDropdown">
       <CardBody className="navDropdown">
-        <Form onSubmit={this.submitLocationQuerry}>
-          <Label className="btns" for="caseNumber-field">Enter Location Query</Label>
+        <Form onSubmit={this.submitGlossaryQuerry}>
+          <Label className="btns" for="caseNumber-field">Enter Information Query</Label>
                   <Input
                     className="put"
                   type="caseNumber"
                   name="caseNumber"
                   id="caseNumber-field"
-                  value={this.state.location}
-                  onChange={e => this.setState({ location: e.target.value})}
+                  value={this.state.info}
+                  onChange={e => this.setState({ info: e.target.value})}
                 />
                 <Label>Note: The Machine Spirit governing this archive is temperamental and only respects queries made with proper punctuation.<br/> Praise be to the Omnissiah.</Label>
 
@@ -84,17 +77,13 @@ class LocationQuerry extends Component {
  
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-  fetchCaseReport,
-  fetchNameReport,
-  fetchLocationReport,
   userLogout,
-  clearCaseReport,
-  clearNameReport,
-  clearLocationReport
+  fetchGlossaryReport,
+  clearGlossaryReport
 }, dispatch)
 
 const mapStateToProps = state => ({
-    location_search_result: state.location_search_result
+    info_search_result: state.info_search_result
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LocationQuerry)); ;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GlossaryQuerry)); ;

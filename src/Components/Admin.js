@@ -71,7 +71,7 @@ class Admin extends Component {
             <Link className="NavbarButtons" to="/Vox_Dispatch" style={{ fontSize:"15pt"}}>Astropathic Logs</Link>
 
         </Navbar>
-
+          <div style={{height:"3em"}}></div>
           {(localStorage.admin !== undefined && localStorage.admin.replace(/"/g,"") === '17') ?
           <div className="container-fluid">
 

@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { bindActionCreators } from 'redux'
 import {
   Navbar,
   NavbarBrand,
   Button
 } from 'reactstrap'
-import { fetchCaseReport, fetchNameReport, fetchLocationReport } from '../Redux/Actions/FieldReportActions'
-
 
 class DashTopper extends Component {
 
@@ -32,11 +28,4 @@ class DashTopper extends Component {
   }
 };
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-  fetchCaseReport,
-  fetchNameReport,
-  fetchLocationReport
-}, dispatch)
-
-export default withRouter(connect(null, mapDispatchToProps) (DashTopper));
+export default withRouter(DashTopper);

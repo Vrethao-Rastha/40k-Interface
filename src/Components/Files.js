@@ -61,7 +61,6 @@ class Files extends Component {
           <CardText className="card-content">{file.First_Name}</CardText>
         <CardTitle className="card-headings">Last Name</CardTitle>
           <CardText className="card-content">{file.Last_Name}</CardText>
-        <CardTitle className="card-headings">Address</CardTitle>
         <CardTitle className="card-headings">Hive</CardTitle>
           <CardText className="card-content">{file.Hive}</CardText>
           <CardTitle className="card-headings">Hive Stack</CardTitle>

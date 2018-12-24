@@ -12,19 +12,14 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
   import { Link } from 'react-router-dom'
-  import NameQuerry from './NameQuerry'
-  import LocationQuerry from './LocationQuerry'
-  import CaseQuerry from './CaseQuerry'
   import InfoQuerry from './InfoQuerry'
-  import { fetchCaseReport, fetchNameReport, fetchLocationReport, clearCaseReport, clearNameReport, clearLocationReport } from '../Redux/Actions/FieldReportActions'
+  import GlossaryQuery from './GlossaryQuery'
 
 class Dash extends Component {
 
   state = {
-    caseSearch: false,
-    nameSearch: false,
-    locationSearch: false,
     infoSearch: false,
+    glossarySearch: false,
     name: '',
     location: '',
     case: '',
@@ -32,30 +27,13 @@ class Dash extends Component {
     animating: false
   }
 
-  componentDidMount() {
-    if(this.props.name_search_result.length > 0){
-      this.props.clearNameReport(this.state.name, this.props.history)
-    }else if(this.props.location_search_result.length > 0){
-      this.props.clearLocationReport(this.state.case, this.props.history)
-    }else if(this.props.case_search_result.length > 0){
-      this.props.clearCaseReport(this.state.case, this.props.history)
-    }
-  }
-
-  toggleCase = () => {
-    this.setState({caseSearch: !this.state.caseSearch, nameSearch: false, locationSearch: false, infoSearch: false})
-  }
-
-  toggleName = () => {
-    this.setState({nameSearch: !this.state.nameSearch, caseSearch: false, locationSearch: false, infoSearch: false})
-  }
-
-  toggleLocation = () => {
-    this.setState({locationSearch: !this.state.locationSearch, nameSearch:false, caseSearch: false, infoSearch: false})
-  }
-
   toggleInfo = () => {
-    this.setState({infoSearch: !this.state.infoSearch, nameSearch: false, locationSearch: false, caseSearch: false})
+    this.setState({infoSearch: !this.state.infoSearch})
+  }
+
+  toggleGlossary = () => {
+    console.log('uyvuyvuy')
+    this.setState({glossarySearch: !this.state.glossarySearch})
   }
 
   logout = (e) => {
@@ -63,6 +41,7 @@ class Dash extends Component {
   }
 
   render() {
+    console.log(this.state)
       return (
         <div className="dash">
           <Navbar className="Navbar">
@@ -76,20 +55,12 @@ class Dash extends Component {
                               File Access
                </DropdownToggle>
                  <DropdownMenu right className="navDropdown">
-                 {/* <DropdownItem className="navDropdown" style={{color:"white"}} header>Personel Records</DropdownItem>
-                 <DropdownItem divider />
-                   <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleCase}>Case Search
-                   </DropdownItem>
-
-                  <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleName}>Name Search
-                  </DropdownItem>
-
-                  <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleLocation}>Location Search
-                  </DropdownItem> */}
 
                   <DropdownItem className="navDropdown text-center" style={{color:"white"}} header>Information</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleInfo}>Data Query
+                  </DropdownItem>
+                  <DropdownItem className="navDropdown btn btn-primary text-center" onClick={this.toggleGlossary}>Data Query
                   </DropdownItem>
 
                   <DropdownItem className="navDropdown text-center">
@@ -105,11 +76,8 @@ class Dash extends Component {
               <Link className="NavbarButtons mx-5" to="/Vox_Dispatch" style={{marginTop: ".5em"}}>Astropathic Logs</Link>
                <Button className="NavbarButtons mr-5" onClick={ this.logout }>Logout</Button>   
         </Navbar>
-
-          { this.state.caseSearch ? <CaseQuerry /> : null }
-          { this.state.nameSearch ? <NameQuerry /> : null }
-          { this.state.locationSearch ? <LocationQuerry /> : null }
           { this.state.infoSearch ? <InfoQuerry /> : null }
+          { this.state.glossarySearch ? <GlossaryQuery /> : null }
         </div>
       );
     } 
@@ -117,19 +85,11 @@ class Dash extends Component {
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-  fetchCaseReport,
-  fetchNameReport,
-  fetchLocationReport,
   userLogout,
-  clearCaseReport,
-  clearNameReport,
-  clearLocationReport
 }, dispatch)
 
 const mapStateToProps = state => ({
-  case_search_result: state.case_search_result,
-  name_search_result: state.name_search_result,
-  location_search_result: state.location_search_result
+  
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dash));
